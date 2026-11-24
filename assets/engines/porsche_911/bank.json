@@ -1,0 +1,49 @@
+{
+  "id": "porsche_911",
+  "title": "Porsche 911",
+  "engine": "Flat-6",
+  "credit": "mharo, freesound.org (CC0)",
+  "cylinders": 6,
+  "rate": 22050,
+  "idle": 940,
+  "redline": 6000,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_940.wav",
+      "rpm": 940,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_1050.wav",
+      "rpm": 1050,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "on_2000.wav",
+      "rpm": 1970,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_2700.wav",
+      "rpm": 2680,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3400.wav",
+      "rpm": 3366,
+      "load": true,
+      "gain": 1.0
+    }
+  ],
+  "pops": 0.6,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "David Villarreal Fernández, CC BY-SA 2.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:2013_Porsche_911_Carrera_4S_(991)_(9626546987).jpg"
+  }
+}

@@ -1,0 +1,24 @@
+.class public abstract LJr0;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# static fields
+.field public static final a:LIr0;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .line 1
+    sget-object v0, LIr0;->q:LIr0;
+
+    .line 2
+    .line 3
+    sput-object v0, LJr0;->a:LIr0;
+
+    .line 4
+    .line 5
+    return-void
+.end method

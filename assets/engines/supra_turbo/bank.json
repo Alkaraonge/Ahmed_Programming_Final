@@ -1,0 +1,69 @@
+{
+  "id": "supra_turbo",
+  "title": "Toyota Supra Turbo",
+  "engine": "Inline-6 · turbo",
+  "credit": "editboy23, freesound.org (CC0)",
+  "cylinders": 6,
+  "rate": 22050,
+  "idle": 900,
+  "redline": 7000,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_1600.wav",
+      "rpm": 1636,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_2600.wav",
+      "rpm": 2600,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_3400.wav",
+      "rpm": 3400,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_4500.wav",
+      "rpm": 4522,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_3500.wav",
+      "rpm": 3482,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4500.wav",
+      "rpm": 4477,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_5500.wav",
+      "rpm": 5445,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_6500.wav",
+      "rpm": 6451,
+      "load": true,
+      "gain": 1.0
+    }
+  ],
+  "pops": 0.6,
+  "turbo": 1.0,
+  "flutter": true,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Mr.choppers, CC BY-SA 3.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:1994_Toyota_Supra_Sport_Roof_in_Red,_front_left.jpg"
+  }
+}

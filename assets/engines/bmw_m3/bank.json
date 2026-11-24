@@ -1,0 +1,79 @@
+{
+  "id": "bmw_m3",
+  "title": "BMW M3",
+  "engine": "Inline-6 · 3.2 L",
+  "credit": "ikbenraar, freesound.org (CC BY 4.0)",
+  "cylinders": 6,
+  "rate": 22050,
+  "idle": 1100,
+  "redline": 7800,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_1100.wav",
+      "rpm": 1097,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_2000.wav",
+      "rpm": 2020,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_3000.wav",
+      "rpm": 3022,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_2500.wav",
+      "rpm": 2475,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3500.wav",
+      "rpm": 3456,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4500.wav",
+      "rpm": 4466,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_5500.wav",
+      "rpm": 5459,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_6300.wav",
+      "rpm": 6284,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_7000.wav",
+      "rpm": 7000,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_5500.wav",
+      "rpm": 5459,
+      "load": false,
+      "gain": 0.55
+    }
+  ],
+  "pops": 0.7,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Ildar Sagdejev (Specious), CC BY-SA 4.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:2011-09-10_BMW_M3_in_No_Parking_Zone.jpg"
+  }
+}

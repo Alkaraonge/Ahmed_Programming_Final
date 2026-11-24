@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dash_abs">
+        <item>ABS fault</item>
+        <item>Anti-lock braking is not working; the normal brakes still work.</item>
+        <item>Brake gently, keep extra distance and have it checked soon.</item>
+    </string-array>
+    <string-array name="dash_acc_active">
+        <item>ACC active</item>
+        <item>Adaptive cruise control is keeping your speed and distance.</item>
+        <item>Keep your hands on the wheel and watch the road.</item>
+    </string-array>
+    <string-array name="dash_acc_fault">
+        <item>ACC fault</item>
+        <item>Adaptive cruise control has a fault or is not available.</item>
+        <item>Drive without ACC and have the system checked.</item>
+    </string-array>
+    <string-array name="dash_acc_speed">
+        <item>ACC set speed</item>
+        <item>The speed that adaptive cruise is keeping (for example 100 km/h).</item>
+        <item>Change it with the steering-wheel buttons.</item>
+    </string-array>
+    <string-array name="dash_acc_standby">
+        <item>ACC standby</item>
+        <item>Adaptive cruise is ready but not active.</item>
+        <item>Switch it on with the steering-wheel buttons.</item>
+    </string-array>
+    <string-array name="dash_airbag">
+        <item>Airbag (SRS) fault</item>
+        <item>A fault in the airbags or seat-belt pretensioners: they may not work in a crash.</item>
+        <item>Have it checked at a BYD service centre as soon as possible.</item>
+    </string-array>
+    <string-array name="dash_avh">
+        <item>AUTO HOLD</item>
+        <item>Green: holding the car still after you stop. White: ready.</item>
+        <item>Press the accelerator to drive off.</item>
+    </string-array>
+    <string-array name="dash_brake">
+        <item>Brake system warning</item>
+        <item>Brake fluid is low or the braking system has a fault.</item>
+        <item>Stop safely now and do not keep driving. Contact a BYD service centre.</item>
+    </string-array>
+    <string-array name="dash_bsd">
+        <item>Blind spot detection</item>
+        <item>Blind spot monitoring status. Staying on can mean a fault.</item>
+        <item>Check your mirrors. If it stays on, have it checked.</item>
+    </string-array>
+    <string-array name="dash_coolant">
+        <item>Motor coolant too hot</item>
+        <item>The motor coolant temperature is too high.</item>
+        <item>Park in a safe place until the light goes out.</item>
+    </string-array>
+    <string-array name="dash_cruise">
+        <item>Cruise control</item>
+        <item>Cruise control is switched on.</item>
+        <item>Set a speed to start cruising.</item>
+    </string-array>
+    <string-array name="dash_discharge">
+        <item>Discharge (V2L)</item>
+        <item>The car is powering an external device. A warning shows if discharging fails.</item>
+        <item>Unplug the device when you are finished.</item>
+    </string-array>
+    <string-array name="dash_eco">
+        <item>ECO mode</item>
+        <item>Economy drive mode is on, for lower consumption.</item>
+        <item>No action needed.</item>
+    </string-array>
+    <string-array name="dash_engine">
+        <item>Engine fault</item>
+        <item>The engine has a fault.</item>
+        <item>Park safely and contact a BYD service centre.</item>
+    </string-array>
+    <string-array name="dash_epb">
+        <item>Electronic parking brake (EPB)</item>
+        <item>On while the parking brake is applied. Flashing means an EPB fault.</item>
+        <item>Release the parking brake before driving. If it flashes, contact service.</item>
+    </string-array>
+    <string-array name="dash_esc">
+        <item>Stability control (ESC)</item>
+        <item>Flashing: ESC is working to keep the car stable. Steady: ESC fault.</item>
+        <item>When it flashes, ease off the accelerator. If it stays on, have it checked.</item>
+    </string-array>
+    <string-array name="dash_esc_off">
+        <item>ESC OFF</item>
+        <item>Stability control has been switched off.</item>
+        <item>Turn ESC back on unless you are stuck in sand, snow or mud.</item>
+    </string-array>
+    <string-array name="dash_esc_red">
+        <item>ESC system fault</item>
+        <item>The electronic stability control has a fault.</item>
+        <item>Drive carefully, avoid sharp turns and have it checked soon.</item>
+    </string-array>
+    <string-array name="dash_ev">
+        <item>EV mode</item>
+        <item>The car is driving on electric power only.</item>
+        <item>No action needed.</item>
+    </string-array>
+    <string-array name="dash_front_car">
+        <item>Vehicle ahead detected</item>
+        <item>The system has found a vehicle ahead to follow.</item>
+        <item>No action needed; keep a safe distance.</item>
+    </string-array>
+    <string-array name="dash_hev">
+        <item>HEV mode</item>
+        <item>The car is using the engine and the electric motor together.</item>
+        <item>No action needed.</item>
+    </string-array>
+    <string-array name="dash_high_beam">
+        <item>High beam</item>
+        <item>The main-beam headlights are on.</item>
+        <item>Dip them for oncoming traffic.</item>
+    </string-array>
+    <string-array name="dash_hma">
+        <item>Smart high beam (HMA)</item>
+        <item>The high beam switches on and off automatically for other vehicles.</item>
+        <item>No action needed.</item>
+    </string-array>
+    <string-array name="dash_hv_battery">
+        <item>High-voltage battery fault</item>
+        <item>The traction battery system has a fault.</item>
+        <item>Contact a BYD service centre for inspection as soon as possible.</item>
+    </string-array>
+    <string-array name="dash_hv_overheat">
+        <item>High-voltage battery overheating</item>
+        <item>The traction battery is too hot. Flashing is serious.</item>
+        <item>Stop safely to let it cool. If it flashes, stop and leave the car.</item>
+    </string-array>
+    <string-array name="dash_lda">
+        <item>Lane departure assist</item>
+        <item>Warns you when the car drifts out of its lane.</item>
+        <item>Stay in your lane and use the indicators when changing lanes.</item>
+    </string-array>
+    <string-array name="dash_lka">
+        <item>Lane keeping assist</item>
+        <item>Gently steers the car back into its lane.</item>
+        <item>Keep your hands on the wheel.</item>
+    </string-array>
+    <string-array name="dash_low_fuel">
+        <item>Low fuel</item>
+        <item>The fuel level is low.</item>
+        <item>Refuel soon.</item>
+    </string-array>
+    <string-array name="dash_lv_power">
+        <item>12V power system fault</item>
+        <item>A problem with the DC converter or the low-voltage (12V) system.</item>
+        <item>Turn off the A/C, fan and radio, pull over safely and contact service.</item>
+    </string-array>
+    <string-array name="dash_master">
+        <item>Master warning</item>
+        <item>There is a message or fault on the instrument cluster.</item>
+        <item>Read the message on the cluster and follow it.</item>
+    </string-array>
+    <string-array name="dash_mil">
+        <item>Engine emission fault</item>
+        <item>The engine management or emission system has detected a fault.</item>
+        <item>Have the engine checked at a BYD service centre.</item>
+    </string-array>
+    <string-array name="dash_normal">
+        <item>NORMAL mode</item>
+        <item>The normal drive mode is on.</item>
+        <item>No action needed.</item>
+    </string-array>
+    <string-array name="dash_oil_life">
+        <item>Engine oil</item>
+        <item>The engine oil needs changing, or the oil pressure is low.</item>
+        <item>Book an oil service. If it stays on while driving, stop the engine and check the oil.</item>
+    </string-array>
+    <string-array name="dash_ok">
+        <item>OK (ready to drive)</item>
+        <item>The car is on and ready to drive.</item>
+        <item>Select D or R to start driving.</item>
+    </string-array>
+    <string-array name="dash_powertrain">
+        <item>Powertrain fault</item>
+        <item>The drive system has a fault and power may be limited.</item>
+        <item>Avoid driving. Stop safely and contact a BYD service centre.</item>
+    </string-array>
+    <string-array name="dash_rear_fog">
+        <item>Rear fog light</item>
+        <item>The rear fog light is on.</item>
+        <item>Use it only in fog or heavy rain; switch it off otherwise.</item>
+    </string-array>
+    <string-array name="dash_set">
+        <item>Cruise speed set</item>
+        <item>Cruise control is holding the set speed.</item>
+        <item>Brake or press cancel to stop cruising.</item>
+    </string-array>
+    <string-array name="dash_smart_key">
+        <item>Smart key warning</item>
+        <item>The key is not detected in the car. Flashing means its battery is low.</item>
+        <item>Bring the key inside the car, or replace its battery.</item>
+    </string-array>
+    <string-array name="dash_sport">
+        <item>SPORT mode</item>
+        <item>Sport drive mode is on, for a quicker response.</item>
+        <item>No action needed.</item>
+    </string-array>
+    <string-array name="dash_tja_active">
+        <item>TJA/ICA active</item>
+        <item>Traffic-jam / intelligent cruise assist is steering within the lane.</item>
+        <item>Keep your hands on the wheel at all times.</item>
+    </string-array>
+    <string-array name="dash_tja_standby">
+        <item>TJA/ICA standby</item>
+        <item>Lane-centring assist is ready but not steering.</item>
+        <item>It starts when the lane and speed conditions are met.</item>
+    </string-array>
+    <string-array name="dash_tpms">
+        <item>Tyre pressure warning</item>
+        <item>One or more tyres are under-inflated, leaking or too hot.</item>
+        <item>Slow down, check the tyre screen, then inflate or repair the tyre.</item>
+    </string-array>
+    <string-array name="dash_tsr">
+        <item>Traffic sign recognition</item>
+        <item>Shows the speed limit the camera has recognised.</item>
+        <item>Keep to the speed limit.</item>
+    </string-array>
+    <string-array name="greg_months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+    <string-array name="hijri_months">
+        <item>Muharram</item>
+        <item>Safar</item>
+        <item>"Rabi' al-Awwal"</item>
+        <item>"Rabi' al-Thani"</item>
+        <item>Jumada al-Ula</item>
+        <item>Jumada al-Akhirah</item>
+        <item>Rajab</item>
+        <item>"Sha'ban"</item>
+        <item>Ramadan</item>
+        <item>Shawwal</item>
+        <item>"Dhu al-Qa'dah"</item>
+        <item>Dhu al-Hijjah</item>
+    </string-array>
+    <string-array name="privacy_sections">
+        <item>"On your device
+Voice training samples, settings, saved places, parking spots and energy records are stored only on this device. Speech recognition runs entirely on the device, so your voice never leaves it."</item>
+        <item>"Microphone
+The microphone is used only to hear your commands. The wake word listens continuously only when you switch it on. Audio is processed in memory and not kept, except the training samples you record yourself."</item>
+        <item>"Location
+Location is used for where you parked, saved places, weather and speed limits. For weather, street names and speed limits, the position (without your name or any ID) is sent to free public services: MET Norway and OpenStreetMap."</item>
+        <item>"Phone and car
+Your phone and your car talk directly over your own Wi-Fi or hotspot after you pair them with a code. Nothing passes through أحمد للبرمجة's servers."</item>
+        <item>"Accessibility
+SmartBYD's accessibility service is used only to press buttons on the car's own A/C screen and to open the settings pages you ask for. It does not collect your personal content."</item>
+        <item>"No tracking
+There are no accounts, no ads and no analytics. أحمد للبرمجة does not collect, sell or share your data."</item>
+        <item>"Your control
+You can delete training samples at any time, and uninstalling SmartBYD removes all its data from the device."</item>
+        <item>"Contact
+Questions about privacy: أحمد للبرمجة, WhatsApp ⁦+964 780 774 4244⁩."</item>
+    </string-array>
+    <string-array name="terms_sections">
+        <item>"Licence
+SmartBYD is the property of أحمد للبرمجة Company and is licensed to you for personal use in your own vehicle. All rights reserved."</item>
+        <item>"What the app is for
+SmartBYD is a tool that helps you make your car smarter: voice and phone control of the car's functions through the car's own screens. How you use it is your choice and your responsibility."</item>
+        <item>"Drive safely
+Keep your attention on the road and follow traffic laws. Do not handle your phone while driving where the law forbids it."</item>
+        <item>"No guarantee
+SmartBYD works by operating the car's own screens, so a car or system update may change how it behaves. The app is provided \"as is\"."</item>
+        <item>"Not affiliated with BYD
+SmartBYD is an independent product by أحمد للبرمجة and is not made, approved or supported by BYD. BYD is a trademark of its owner."</item>
+        <item>"Prohibited use
+Cracking, modifying, reverse-engineering, copying, reselling or sharing SmartBYD, or using it without a licence, is illegal. Whoever does so is fully responsible, and أحمد للبرمجة may take legal action."</item>
+        <item>"Limitation of liability
+To the extent the law allows, أحمد للبرمجة is not liable for damage caused by misuse of the app, distraction while driving, or faults in the vehicle."</item>
+        <item>"Changes and contact
+These terms may be updated with new versions of the app. To order the app: ⁦+964 780 774 4244⁩. WhatsApp: ⁦+964 780 774 4244⁩."</item>
+    </string-array>
+    <string-array name="weekdays">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+</resources>

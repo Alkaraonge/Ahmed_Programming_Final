@@ -1,0 +1,73 @@
+{
+  "id": "lamborghini_aventador",
+  "title": "Lamborghini Aventador",
+  "engine": "V12 · 6.5 L",
+  "credit": "Pole Position Production, Sonniss GDC",
+  "cylinders": 12,
+  "rate": 22050,
+  "idle": 1000,
+  "redline": 7000,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_1000.wav",
+      "rpm": 1002,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_2000.wav",
+      "rpm": 2000,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_3000.wav",
+      "rpm": 3000,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_4000.wav",
+      "rpm": 4000,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_2000.wav",
+      "rpm": 2000,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_2800.wav",
+      "rpm": 2800,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3600.wav",
+      "rpm": 3591,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4500.wav",
+      "rpm": 4477,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4500.wav",
+      "rpm": 4477,
+      "load": false,
+      "gain": 0.55
+    }
+  ],
+  "pops": 1.0,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Mr.choppers, CC BY-SA 3.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:2015_Lamborghini_Aventador_LP700-4_Roadster_in_Grigio_Titans,_front_left.jpg"
+  }
+}

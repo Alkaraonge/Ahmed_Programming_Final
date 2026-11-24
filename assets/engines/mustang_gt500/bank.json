@@ -1,0 +1,74 @@
+{
+  "id": "mustang_gt500",
+  "title": "Ford Mustang GT500",
+  "engine": "V8 · supercharged",
+  "credit": "VacekH, freesound.org (CC0)",
+  "cylinders": 8,
+  "rate": 22050,
+  "idle": 720,
+  "redline": 6500,
+  "start": "start.wav",
+  "loops": [
+    {
+      "file": "off_720.wav",
+      "rpm": 715,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_1700.wav",
+      "rpm": 1696,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_2500.wav",
+      "rpm": 2487,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_3600.wav",
+      "rpm": 3591,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_2500.wav",
+      "rpm": 2469,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3500.wav",
+      "rpm": 3474,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4500.wav",
+      "rpm": 4421,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_5500.wav",
+      "rpm": 5459,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_6200.wav",
+      "rpm": 6122,
+      "load": true,
+      "gain": 1.0
+    }
+  ],
+  "pops": 0.7,
+  "whine": 0.8,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Christian Flores, CC BY-SA 2.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:2013_Ford_Shelby_GT500_(6432225841).jpg"
+  }
+}

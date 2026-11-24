@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lic_days_left">
+        <item quantity="other">بقي %1$d يوماً</item>
+    </plurals>
+    <plurals name="prayer_hours">
+        <item quantity="other">%d ساعة</item>
+        <item quantity="zero">%d ساعة</item>
+        <item quantity="one">ساعة</item>
+        <item quantity="two">ساعتين</item>
+        <item quantity="few">%d ساعات</item>
+        <item quantity="many">%d ساعة</item>
+    </plurals>
+    <plurals name="prayer_minutes">
+        <item quantity="other">%d دقيقة</item>
+        <item quantity="zero">%d دقيقة</item>
+        <item quantity="one">دقيقة</item>
+        <item quantity="two">دقيقتين</item>
+        <item quantity="few">%d دقائق</item>
+        <item quantity="many">%d دقيقة</item>
+    </plurals>
+    <plurals name="taxi_fares_missing">
+        <item quantity="other">%1$s أجرة بانتظار الإدخال</item>
+        <item quantity="zero">لا أجور بانتظار الإدخال</item>
+        <item quantity="one">أجرة واحدة بانتظار الإدخال</item>
+        <item quantity="two">أجرتان بانتظار الإدخال</item>
+        <item quantity="few">%1$s أجور بانتظار الإدخال</item>
+        <item quantity="many">%1$s أجرة بانتظار الإدخال</item>
+    </plurals>
+    <plurals name="taxi_other_currency">
+        <item quantity="other">%1$s رحلة بعملة أخرى غير محسوبة في هذه المجاميع</item>
+        <item quantity="zero">لا رحلات بعملة أخرى</item>
+        <item quantity="one">رحلة واحدة بعملة أخرى غير محسوبة في هذه المجاميع</item>
+        <item quantity="two">رحلتان بعملة أخرى غير محسوبتين في هذه المجاميع</item>
+        <item quantity="few">%1$s رحلات بعملة أخرى غير محسوبة في هذه المجاميع</item>
+        <item quantity="many">%1$s رحلة بعملة أخرى غير محسوبة في هذه المجاميع</item>
+    </plurals>
+    <plurals name="teach_accent_redo">
+        <item quantity="other">%1$d تسجيل بالصيغة القديمة. أعد تسجيلها كما تُقال في %2$s.</item>
+        <item quantity="zero">%1$d تسجيلات بالصيغة القديمة. أعد تسجيلها كما تُقال في %2$s.</item>
+        <item quantity="one">تسجيل واحد بالصيغة القديمة. أعد تسجيله كما يُقال في %2$s.</item>
+        <item quantity="two">تسجيلان بالصيغة القديمة. أعد تسجيلهما كما يُقالان في %2$s.</item>
+        <item quantity="few">%1$d تسجيلات بالصيغة القديمة. أعد تسجيلها كما تُقال في %2$s.</item>
+        <item quantity="many">%1$d تسجيلاً بالصيغة القديمة. أعد تسجيلها كما تُقال في %2$s.</item>
+    </plurals>
+    <plurals name="trips_count">
+        <item quantity="other">%1$s رحلة</item>
+        <item quantity="zero">لا رحلات</item>
+        <item quantity="one">رحلة واحدة</item>
+        <item quantity="two">رحلتان</item>
+        <item quantity="few">%1$s رحلات</item>
+        <item quantity="many">%1$s رحلة</item>
+    </plurals>
+    <plurals name="widget_days">
+        <item quantity="other">قبل %s يوم</item>
+        <item quantity="one">قبل يوم</item>
+        <item quantity="two">قبل يومين</item>
+        <item quantity="few">قبل %s أيام</item>
+        <item quantity="many">قبل %s يوماً</item>
+    </plurals>
+    <plurals name="widget_hours">
+        <item quantity="other">قبل %s ساعة</item>
+        <item quantity="one">قبل ساعة</item>
+        <item quantity="two">قبل ساعتين</item>
+        <item quantity="few">قبل %s ساعات</item>
+        <item quantity="many">قبل %s ساعة</item>
+    </plurals>
+    <plurals name="widget_minutes">
+        <item quantity="other">قبل %s دقيقة</item>
+        <item quantity="one">قبل دقيقة</item>
+        <item quantity="two">قبل دقيقتين</item>
+        <item quantity="few">قبل %s دقائق</item>
+        <item quantity="many">قبل %s دقيقة</item>
+    </plurals>
+</resources>

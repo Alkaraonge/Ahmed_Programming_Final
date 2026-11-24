@@ -1,0 +1,74 @@
+{
+  "id": "mclaren_570s",
+  "title": "McLaren 570S",
+  "engine": "V8 · 3.8 twin-turbo",
+  "credit": "Pole Position Production, Sonniss GDC",
+  "cylinders": 8,
+  "rate": 22050,
+  "idle": 950,
+  "redline": 6500,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_950.wav",
+      "rpm": 957,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_1600.wav",
+      "rpm": 1604,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_2500.wav",
+      "rpm": 2500,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_3200.wav",
+      "rpm": 3216,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_1700.wav",
+      "rpm": 1704,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_2300.wav",
+      "rpm": 2294,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_2900.wav",
+      "rpm": 2871,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3500.wav",
+      "rpm": 3474,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3500.wav",
+      "rpm": 3474,
+      "load": false,
+      "gain": 0.55
+    }
+  ],
+  "pops": 1.0,
+  "turbo": 0.6,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Mr.choppers, CC BY-SA 3.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:2017_McLaren_570S,_blue,_front_left.jpg"
+  }
+}

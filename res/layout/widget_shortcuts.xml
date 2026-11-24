@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/w_root" android:background="@drawable/widget_bg" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0sp" android:textColor="@color/widget_muted" android:id="@id/w_go" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="6.0dip" android:text="@string/widget_go_to" android:textAlignment="viewStart" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/w_home" android:background="@drawable/widget_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginEnd="8.0dip">
+            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_home" android:tint="@color/widget_blue" android:contentDescription="@null" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_home_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/place_home" android:maxLines="1" android:layout_marginStart="8.0dip" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/w_work" android:background="@drawable/widget_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_work" android:tint="@color/widget_blue" android:contentDescription="@null" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_work_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/place_work" android:maxLines="1" android:layout_marginStart="8.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:textSize="12.0sp" android:textColor="@color/widget_muted" android:id="@id/w_comfort" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="6.0dip" android:text="@string/widget_comfort" android:textAlignment="viewStart" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/w_cold" android:background="@drawable/widget_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginEnd="8.0dip">
+            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_cold" android:tint="@color/widget_ice" android:contentDescription="@null" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_cold_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="@string/cmd_routine_cold" android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/w_hot" android:background="@drawable/widget_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginEnd="8.0dip">
+            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_sun" android:tint="@color/widget_amber" android:contentDescription="@null" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_hot_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="@string/cmd_routine_hot" android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/w_vhot" android:background="@drawable/widget_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_flame" android:tint="@color/widget_warm" android:contentDescription="@null" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_vhot_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="@string/cmd_routine_very_hot" android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dash_abs">
+        <item>عطل نظام ABS</item>
+        <item>نظام منع انغلاق الفرامل لا يعمل، والفرامل العادية ما زالت تعمل.</item>
+        <item>افرمل بلطف وحافظ على مسافة أكبر وافحصه قريباً.</item>
+    </string-array>
+    <string-array name="dash_acc_active">
+        <item>ACC يعمل</item>
+        <item>مثبت السرعة التكيّفي يحافظ على السرعة والمسافة.</item>
+        <item>أبقِ يديك على المقود وانتبه للطريق.</item>
+    </string-array>
+    <string-array name="dash_acc_fault">
+        <item>عطل مثبت السرعة التكيّفي ACC</item>
+        <item>مثبت السرعة التكيّفي فيه عطل أو غير متاح.</item>
+        <item>قُد بدون ACC وافحص النظام.</item>
+    </string-array>
+    <string-array name="dash_acc_speed">
+        <item>سرعة ACC</item>
+        <item>السرعة التي يحافظ عليها مثبت السرعة التكيّفي (مثلاً 100 كم/س).</item>
+        <item>غيّرها بأزرار المقود.</item>
+    </string-array>
+    <string-array name="dash_acc_standby">
+        <item>ACC في وضع الاستعداد</item>
+        <item>مثبت السرعة التكيّفي جاهز لكنه غير مُفعّل.</item>
+        <item>فعّله بأزرار المقود.</item>
+    </string-array>
+    <string-array name="dash_airbag">
+        <item>عطل الوسائد الهوائية (SRS)</item>
+        <item>يوجد عطل في الوسائد الهوائية أو شدّادات أحزمة الأمان، وقد لا تعمل عند الحادث.</item>
+        <item>افحصها في مركز صيانة BYD بأسرع وقت.</item>
+    </string-array>
+    <string-array name="dash_avh">
+        <item>AUTO HOLD</item>
+        <item>أخضر: يثبّت السيارة بعد التوقف. أبيض: جاهز.</item>
+        <item>اضغط دوّاسة السرعة للانطلاق.</item>
+    </string-array>
+    <string-array name="dash_brake">
+        <item>تحذير نظام الفرامل</item>
+        <item>مستوى زيت الفرامل منخفض أو يوجد عطل في نظام الفرامل.</item>
+        <item>توقّف بأمان فوراً ولا تكمل القيادة. تواصل مع مركز صيانة BYD.</item>
+    </string-array>
+    <string-array name="dash_bsd">
+        <item>رصد النقطة العمياء</item>
+        <item>حالة مراقبة النقطة العمياء، وبقاؤه مضاءً قد يعني عطلاً.</item>
+        <item>راقب المرايا، وإذا بقي مضاءً افحصه.</item>
+    </string-array>
+    <string-array name="dash_coolant">
+        <item>ارتفاع حرارة سائل تبريد المحرك</item>
+        <item>درجة حرارة سائل تبريد المحرك الكهربائي مرتفعة جداً.</item>
+        <item>توقّف في مكان آمن حتى ينطفئ الضوء.</item>
+    </string-array>
+    <string-array name="dash_cruise">
+        <item>مثبت السرعة</item>
+        <item>مثبت السرعة مُشغّل.</item>
+        <item>حدّد سرعة لبدء التثبيت.</item>
+    </string-array>
+    <string-array name="dash_discharge">
+        <item>التفريغ (V2L)</item>
+        <item>السيارة تزوّد جهازاً خارجياً بالكهرباء، ويظهر تحذير عند فشل التفريغ.</item>
+        <item>افصل الجهاز عند الانتهاء.</item>
+    </string-array>
+    <string-array name="dash_eco">
+        <item>وضع ECO</item>
+        <item>وضع القيادة الاقتصادي مُفعّل لتقليل الاستهلاك.</item>
+        <item>لا يلزم أي إجراء.</item>
+    </string-array>
+    <string-array name="dash_engine">
+        <item>عطل المحرك</item>
+        <item>يوجد عطل في محرك البنزين.</item>
+        <item>توقّف بأمان وتواصل مع مركز صيانة BYD.</item>
+    </string-array>
+    <string-array name="dash_epb">
+        <item>فرامل الوقوف الكهربائية (EPB)</item>
+        <item>يضيء عند تفعيل فرامل الوقوف، والوميض يعني وجود عطل.</item>
+        <item>حرّر فرامل الوقوف قبل القيادة. إذا كان يومض تواصل مع الصيانة.</item>
+    </string-array>
+    <string-array name="dash_esc">
+        <item>نظام الثبات (ESC)</item>
+        <item>الوميض: النظام يعمل لتثبيت السيارة. الإضاءة الثابتة: عطل.</item>
+        <item>عند الوميض خفّف الضغط على دوّاسة السرعة. إذا بقي مضاءً افحصه.</item>
+    </string-array>
+    <string-array name="dash_esc_off">
+        <item>إيقاف نظام الثبات ESC OFF</item>
+        <item>تم إيقاف نظام التحكم بالثبات.</item>
+        <item>أعد تشغيله إلا إذا كانت السيارة عالقة في الرمل أو الطين.</item>
+    </string-array>
+    <string-array name="dash_esc_red">
+        <item>عطل نظام الثبات ESC</item>
+        <item>يوجد عطل في نظام التحكم الإلكتروني بالثبات.</item>
+        <item>قُد بحذر وتجنّب المنعطفات الحادة وافحصه قريباً.</item>
+    </string-array>
+    <string-array name="dash_ev">
+        <item>وضع EV</item>
+        <item>السيارة تسير على الكهرباء فقط.</item>
+        <item>لا يلزم أي إجراء.</item>
+    </string-array>
+    <string-array name="dash_front_car">
+        <item>تم رصد سيارة أمامية</item>
+        <item>النظام رصد سيارة أمامك ليتبعها.</item>
+        <item>لا يلزم أي إجراء، وحافظ على مسافة آمنة.</item>
+    </string-array>
+    <string-array name="dash_hev">
+        <item>وضع HEV</item>
+        <item>السيارة تستخدم محرك البنزين والمحرك الكهربائي معاً.</item>
+        <item>لا يلزم أي إجراء.</item>
+    </string-array>
+    <string-array name="dash_high_beam">
+        <item>الضوء العالي</item>
+        <item>المصابيح الأمامية العالية مُشغّلة.</item>
+        <item>اخفضها عند وجود سيارات مقابلة.</item>
+    </string-array>
+    <string-array name="dash_hma">
+        <item>الضوء العالي الذكي (HMA)</item>
+        <item>يتبدّل الضوء العالي تلقائياً حسب السيارات الأخرى.</item>
+        <item>لا يلزم أي إجراء.</item>
+    </string-array>
+    <string-array name="dash_hv_battery">
+        <item>عطل بطارية الجهد العالي</item>
+        <item>يوجد عطل في نظام بطارية القيادة.</item>
+        <item>تواصل مع مركز صيانة BYD للفحص بأسرع وقت.</item>
+    </string-array>
+    <string-array name="dash_hv_overheat">
+        <item>ارتفاع حرارة بطارية الجهد العالي</item>
+        <item>بطارية القيادة حرارتها مرتفعة جداً، والوميض يعني خطراً.</item>
+        <item>توقّف بأمان لتبرد. إذا كان يومض توقّف وغادر السيارة.</item>
+    </string-array>
+    <string-array name="dash_lda">
+        <item>مساعد مغادرة المسار</item>
+        <item>ينبّهك عند خروج السيارة من مسارها.</item>
+        <item>ابقَ في مسارك واستخدم الإشارات عند تغييره.</item>
+    </string-array>
+    <string-array name="dash_lka">
+        <item>مساعد البقاء في المسار</item>
+        <item>يعيد السيارة بلطف إلى مسارها.</item>
+        <item>أبقِ يديك على المقود.</item>
+    </string-array>
+    <string-array name="dash_low_fuel">
+        <item>انخفاض الوقود</item>
+        <item>مستوى الوقود منخفض.</item>
+        <item>املأ الوقود قريباً.</item>
+    </string-array>
+    <string-array name="dash_lv_power">
+        <item>عطل نظام الجهد المنخفض (12V)</item>
+        <item>يوجد خلل في محوّل التيار أو نظام الجهد المنخفض (12 فولت).</item>
+        <item>أطفئ المكيف والمروحة والراديو، وتوقّف بأمان وتواصل مع الصيانة.</item>
+    </string-array>
+    <string-array name="dash_master">
+        <item>التحذير الرئيسي</item>
+        <item>توجد رسالة أو عطل على شاشة العدادات.</item>
+        <item>اقرأ الرسالة على شاشة العدادات واتبعها.</item>
+    </string-array>
+    <string-array name="dash_mil">
+        <item>عطل انبعاثات المحرك</item>
+        <item>نظام إدارة المحرك أو الانبعاثات اكتشف عطلاً.</item>
+        <item>افحص المحرك في مركز صيانة BYD.</item>
+    </string-array>
+    <string-array name="dash_normal">
+        <item>وضع NORMAL</item>
+        <item>وضع القيادة العادي مُفعّل.</item>
+        <item>لا يلزم أي إجراء.</item>
+    </string-array>
+    <string-array name="dash_oil_life">
+        <item>زيت المحرك</item>
+        <item>زيت المحرك يحتاج تبديلاً أو ضغط الزيت منخفض.</item>
+        <item>احجز موعد تبديل زيت. إذا بقي مضاءً أثناء القيادة أطفئ المحرك وافحص الزيت.</item>
+    </string-array>
+    <string-array name="dash_ok">
+        <item>OK (جاهزة للقيادة)</item>
+        <item>السيارة مُشغّلة وجاهزة للقيادة.</item>
+        <item>اختر D أو R لبدء القيادة.</item>
+    </string-array>
+    <string-array name="dash_powertrain">
+        <item>عطل نظام الدفع</item>
+        <item>يوجد عطل في نظام الحركة وقد تكون القدرة محدودة.</item>
+        <item>تجنّب القيادة. توقّف بأمان وتواصل مع مركز صيانة BYD.</item>
+    </string-array>
+    <string-array name="dash_rear_fog">
+        <item>ضوء الضباب الخلفي</item>
+        <item>ضوء الضباب الخلفي مُشغَّل.</item>
+        <item>استخدمه فقط في الضباب أو المطر الغزير، وأطفئه في غير ذلك.</item>
+    </string-array>
+    <string-array name="dash_set">
+        <item>تم ضبط السرعة</item>
+        <item>مثبت السرعة يحافظ على السرعة المحدّدة.</item>
+        <item>اضغط الفرامل أو زر الإلغاء لإيقافه.</item>
+    </string-array>
+    <string-array name="dash_smart_key">
+        <item>تحذير المفتاح الذكي</item>
+        <item>لم يتم العثور على المفتاح داخل السيارة، والوميض يعني أن بطاريته ضعيفة.</item>
+        <item>أدخل المفتاح إلى السيارة أو بدّل بطاريته.</item>
+    </string-array>
+    <string-array name="dash_sport">
+        <item>وضع SPORT</item>
+        <item>الوضع الرياضي مُفعّل لاستجابة أسرع.</item>
+        <item>لا يلزم أي إجراء.</item>
+    </string-array>
+    <string-array name="dash_tja_active">
+        <item>TJA/ICA يعمل</item>
+        <item>مساعد الازدحام / المثبت الذكي يوجّه السيارة داخل المسار.</item>
+        <item>أبقِ يديك على المقود دائماً.</item>
+    </string-array>
+    <string-array name="dash_tja_standby">
+        <item>TJA/ICA في وضع الاستعداد</item>
+        <item>مساعد التوسّط في المسار جاهز لكنه لا يوجّه.</item>
+        <item>يعمل عند توفّر شروط المسار والسرعة.</item>
+    </string-array>
+    <string-array name="dash_tpms">
+        <item>تحذير ضغط الإطارات</item>
+        <item>إطار واحد أو أكثر ضغطه منخفض أو يسرّب أو حرارته عالية.</item>
+        <item>خفّف السرعة، راجع شاشة الإطارات، ثم انفخ الإطار أو أصلحه.</item>
+    </string-array>
+    <string-array name="dash_tsr">
+        <item>التعرّف على إشارات المرور</item>
+        <item>يعرض حد السرعة الذي تعرّفت عليه الكاميرا.</item>
+        <item>التزم بحد السرعة.</item>
+    </string-array>
+    <string-array name="greg_months">
+        <item>كانون الثاني</item>
+        <item>شباط</item>
+        <item>آذار</item>
+        <item>نيسان</item>
+        <item>أيار</item>
+        <item>حزيران</item>
+        <item>تموز</item>
+        <item>آب</item>
+        <item>أيلول</item>
+        <item>تشرين الأول</item>
+        <item>تشرين الثاني</item>
+        <item>كانون الأول</item>
+    </string-array>
+    <string-array name="hijri_months">
+        <item>محرّم</item>
+        <item>صفر</item>
+        <item>ربيع الأول</item>
+        <item>ربيع الآخر</item>
+        <item>جمادى الأولى</item>
+        <item>جمادى الآخرة</item>
+        <item>رجب</item>
+        <item>شعبان</item>
+        <item>رمضان</item>
+        <item>شوّال</item>
+        <item>ذو القعدة</item>
+        <item>ذو الحجة</item>
+    </string-array>
+    <string-array name="privacy_sections">
+        <item>"على جهازك
+عيّنات تدريب الصوت والإعدادات والأماكن المحفوظة ومواقع الوقوف وسجلات الطاقة تُحفظ على هذا الجهاز فقط. التعرّف على الكلام يعمل بالكامل على الجهاز، فلا يغادر صوتك الجهاز أبداً."</item>
+        <item>"الميكروفون
+يُستخدم الميكروفون فقط لسماع أوامرك. لا تستمع كلمة التنبيه بشكل مستمر إلا عندما تفعّلها. يُعالَج الصوت في الذاكرة ولا يُحفظ، باستثناء عيّنات التدريب التي تسجّلها بنفسك."</item>
+        <item>"الموقع
+يُستخدم الموقع لمعرفة مكان وقوف السيارة والأماكن المحفوظة والطقس وحدود السرعة. للطقس وأسماء الشوارع وحدود السرعة يُرسَل الموقع (دون اسمك أو أي معرّف) إلى خدمات عامة مجانية: MET Norway و OpenStreetMap."</item>
+        <item>"الهاتف والسيارة
+يتواصل هاتفك وسيارتك مباشرة عبر شبكة الواي فاي أو نقطة الاتصال الخاصة بك بعد إقرانهما برمز. لا يمرّ أي شيء عبر خوادم أحمد للبرمجة."</item>
+        <item>"إمكانية الوصول
+تُستخدم خدمة إمكانية الوصول في SmartBYD فقط للضغط على أزرار شاشة المكيف في السيارة ولفتح صفحات الإعدادات التي تطلبها، ولا تجمع محتواك الشخصي."</item>
+        <item>"بدون تتبّع
+لا حسابات ولا إعلانات ولا تحليلات. لا تجمع أحمد للبرمجة بياناتك ولا تبيعها ولا تشاركها."</item>
+        <item>"تحكّمك
+يمكنك حذف عيّنات التدريب في أي وقت، وحذف تطبيق SmartBYD يزيل جميع بياناته من الجهاز."</item>
+        <item>"التواصل
+للأسئلة حول الخصوصية: أحمد للبرمجة، واتساب ⁦+964 780 774 4244⁩."</item>
+    </string-array>
+    <string-array name="terms_sections">
+        <item>"الترخيص
+تطبيق SmartBYD ملك لشركة أحمد للبرمجة، ويُرخَّص لك للاستخدام الشخصي في سيارتك. جميع الحقوق محفوظة."</item>
+        <item>"الغرض من التطبيق
+SmartBYD أداة تساعدك على جعل سيارتك أكثر ذكاءً: التحكم بوظائف السيارة بالصوت ومن الهاتف عبر شاشات السيارة نفسها. طريقة استخدامك له اختيارك ومسؤوليتك."</item>
+        <item>"القيادة بأمان
+أبقِ انتباهك على الطريق والتزم بقوانين المرور. لا تستخدم هاتفك أثناء القيادة حيث يمنع القانون ذلك."</item>
+        <item>"بدون ضمان
+يعمل SmartBYD عبر تشغيل شاشات السيارة نفسها، لذا قد يغيّر تحديث السيارة أو النظام طريقة عمله. يُقدَّم التطبيق «كما هو»."</item>
+        <item>"غير تابع لـ BYD
+SmartBYD منتج مستقل من أحمد للبرمجة، ولا تصنعه BYD ولا تعتمده ولا تدعمه. BYD علامة تجارية لمالكها."</item>
+        <item>"الاستخدام الممنوع
+كسر حماية SmartBYD أو تعديله أو الهندسة العكسية له أو نسخه أو إعادة بيعه أو مشاركته، أو استخدامه دون ترخيص، عمل غير قانوني. ومن يقوم بذلك يتحمّل المسؤولية كاملة، ويحق لـ أحمد للبرمجة اتخاذ الإجراءات القانونية."</item>
+        <item>"حدود المسؤولية
+في الحدود التي يسمح بها القانون، لا تتحمّل أحمد للبرمجة مسؤولية الأضرار الناتجة عن سوء استخدام التطبيق أو التشتّت أثناء القيادة أو أعطال السيارة."</item>
+        <item>"التعديلات والتواصل
+قد تُحدَّث هذه الشروط مع الإصدارات الجديدة من التطبيق. لطلب التطبيق: ⁦+964 780 774 4244⁩. واتساب: ⁦+964 780 774 4244⁩."</item>
+    </string-array>
+    <string-array name="weekdays">
+        <item>الأحد</item>
+        <item>الإثنين</item>
+        <item>الثلاثاء</item>
+        <item>الأربعاء</item>
+        <item>الخميس</item>
+        <item>الجمعة</item>
+        <item>السبت</item>
+    </string-array>
+</resources>

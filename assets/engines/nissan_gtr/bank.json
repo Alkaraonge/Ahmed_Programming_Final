@@ -1,0 +1,87 @@
+{
+  "id": "nissan_gtr",
+  "title": "Nissan GT-R",
+  "engine": "V6 · 3.8 twin-turbo",
+  "credit": "Pole Position Production, Sonniss GDC",
+  "cylinders": 6,
+  "rate": 22050,
+  "idle": 1100,
+  "redline": 7000,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_1100.wav",
+      "rpm": 1050,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_1600.wav",
+      "rpm": 1608,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_2200.wav",
+      "rpm": 2216,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_2900.wav",
+      "rpm": 2914,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_1800.wav",
+      "rpm": 1804,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_2400.wav",
+      "rpm": 2412,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3000.wav",
+      "rpm": 2985,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3600.wav",
+      "rpm": 3582,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4300.wav",
+      "rpm": 4300,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3600.wav",
+      "rpm": 3582,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "on_4300.wav",
+      "rpm": 4300,
+      "load": false,
+      "gain": 0.55
+    }
+  ],
+  "pops": 0.8,
+  "turbo": 1.0,
+  "flutter": true,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Tokumeigakarinoaoshima, CC BY-SA 4.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:Nissan_GT-R_(4BA-R35)_front.jpg"
+  }
+}

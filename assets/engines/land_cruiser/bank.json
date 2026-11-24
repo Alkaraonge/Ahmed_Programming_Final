@@ -1,0 +1,74 @@
+{
+  "id": "land_cruiser",
+  "title": "Toyota Land Cruiser 1985",
+  "engine": "Inline-6 · 4.0 turbo diesel",
+  "credit": "Pole Position Production, Sonniss GDC",
+  "cylinders": 6,
+  "rate": 22050,
+  "idle": 750,
+  "redline": 4000,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_750.wav",
+      "rpm": 744,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_1100.wav",
+      "rpm": 1103,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_1600.wav",
+      "rpm": 1620,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_2100.wav",
+      "rpm": 2121,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_1000.wav",
+      "rpm": 995,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_1400.wav",
+      "rpm": 1407,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_1800.wav",
+      "rpm": 1791,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_2200.wav",
+      "rpm": 2200,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_2200.wav",
+      "rpm": 2200,
+      "load": false,
+      "gain": 0.55
+    }
+  ],
+  "pops": 0.0,
+  "turbo": 0.8,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "FotoSleuth, CC BY 2.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:Toyota_Lancruiser_60_series.jpg"
+  }
+}

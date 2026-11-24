@@ -1,0 +1,73 @@
+{
+  "id": "audi_r8",
+  "title": "Audi R8 V10",
+  "engine": "V10 · 5.2 L",
+  "credit": "Jonas_Jocys, freesound.org (CC BY 4.0)",
+  "cylinders": 10,
+  "rate": 22050,
+  "idle": 1600,
+  "redline": 8000,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_3000.wav",
+      "rpm": 3007,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_4000.wav",
+      "rpm": 3990,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_5200.wav",
+      "rpm": 5213,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_2500.wav",
+      "rpm": 2506,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3400.wav",
+      "rpm": 3400,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4300.wav",
+      "rpm": 4289,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_5300.wav",
+      "rpm": 5300,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_6300.wav",
+      "rpm": 6300,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_2500.wav",
+      "rpm": 2506,
+      "load": false,
+      "gain": 0.55
+    }
+  ],
+  "pops": 1.0,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Calreyn88, CC BY-SA 4.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:2010_Audi_R8_V10_Quattro.jpg"
+  }
+}

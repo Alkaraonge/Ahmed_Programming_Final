@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/w_root" android:background="@drawable/widget_bg" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <TextView android:textSize="22.0sp" android:textStyle="bold" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Seal 05" android:maxLines="1" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+                <ProgressBar android:id="@id/w_batt_bar" android:layout_width="34.0dip" android:layout_height="14.0dip" android:max="100" android:progress="0" android:indeterminate="false" android:progressDrawable="@drawable/widget_battery" style="?android:progressBarStyleHorizontal" />
+                <FrameLayout android:background="@drawable/widget_battery_nub" android:layout_width="2.0dip" android:layout_height="6.0dip" android:layout_marginStart="1.0dip" />
+                <TextView android:textSize="15.0sp" android:textColor="@color/widget_ink" android:id="@id/w_batt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="— %" android:layout_marginStart="8.0dip" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/w_addr_row" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dip">
+                <ImageView android:layout_width="13.0dip" android:layout_height="13.0dip" android:src="@drawable/ic_w_pin" android:tint="@color/widget_muted" android:contentDescription="@null" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/widget_muted" android:ellipsize="end" android:id="@id/w_addr" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:maxLines="1" android:textAlignment="viewStart" android:layout_marginStart="4.0dip" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="end" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <ImageView android:id="@id/w_car" android:layout_width="150.0dip" android:layout_height="0.0dip" android:src="@drawable/seal05" android:scaleType="fitCenter" android:layout_weight="1.0" android:contentDescription="@null" />
+            <TextView android:textSize="11.0sp" android:textColor="@color/widget_muted" android:layout_gravity="end" android:id="@id/w_ago" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:background="@drawable/widget_segment" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginTop="10.0dip">
+        <FrameLayout android:id="@id/w_a1" android:background="@drawable/widget_cell_tap" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_power" android:tint="@color/widget_ink" android:contentDescription="@string/cmd_power" />
+        </FrameLayout>
+        <FrameLayout android:background="@color/widget_line" android:layout_width="1.0dip" android:layout_height="fill_parent" />
+        <FrameLayout android:id="@id/w_a2" android:background="@drawable/widget_cell_tap" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_snow" android:tint="@color/widget_ink" android:contentDescription="@string/cmd_max_cooling" />
+        </FrameLayout>
+        <FrameLayout android:background="@color/widget_line" android:layout_width="1.0dip" android:layout_height="fill_parent" />
+        <FrameLayout android:id="@id/w_a3" android:background="@drawable/widget_cell_tap" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_widget_mic" android:tint="@color/widget_ink" android:contentDescription="@string/tap_and_speak" />
+        </FrameLayout>
+        <FrameLayout android:background="@color/widget_line" android:layout_width="1.0dip" android:layout_height="fill_parent" />
+        <FrameLayout android:id="@id/w_a4" android:background="@drawable/widget_cell_tap" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_home" android:tint="@color/widget_ink" android:contentDescription="@string/place_home" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="androidx_core_ripple_material_light">#1f000000</color>
+    <color name="androidx_core_secondary_text_default_material_light">#8a000000</color>
+    <color name="brand_blue">#ff1f4fd8</color>
+    <color name="call_notification_answer_color">#ff1d873b</color>
+    <color name="call_notification_decline_color">#ffd93025</color>
+    <color name="maplibre_blue">#ff1e8cab</color>
+    <color name="maplibre_gray">#ff7d7f80</color>
+    <color name="maplibre_gray_dark">#ff5f5f5f</color>
+    <color name="maplibre_location_layer_blue">#ff4a90e2</color>
+    <color name="maplibre_location_layer_gray">#ffa1b0c0</color>
+    <color name="notification_action_color_filter">@color/androidx_core_secondary_text_default_material_light</color>
+    <color name="notification_icon_bg_color">#ff9e9e9e</color>
+    <color name="widget_amber">#fff5b942</color>
+    <color name="widget_blue">#ff3b63de</color>
+    <color name="widget_card">#ff141a26</color>
+    <color name="widget_cell">#ff1c2433</color>
+    <color name="widget_green">#ff2fb67c</color>
+    <color name="widget_ice">#ff7fb2ff</color>
+    <color name="widget_ink">#fff2f4f7</color>
+    <color name="widget_line">#ff2a3344</color>
+    <color name="widget_muted">#ff8a94a6</color>
+    <color name="widget_on_blue">#ffffffff</color>
+    <color name="widget_warm">#ffff8a5b</color>
+</resources>

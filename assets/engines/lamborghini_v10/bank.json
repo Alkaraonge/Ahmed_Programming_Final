@@ -1,0 +1,67 @@
+{
+  "id": "lamborghini_v10",
+  "title": "Lamborghini V10",
+  "engine": "V10 · 5.2 L",
+  "credit": "cheesepuff, JaimeLopes, freesound.org (CC0)",
+  "cylinders": 10,
+  "rate": 22050,
+  "idle": 1400,
+  "redline": 8000,
+  "start": "start.wav",
+  "loops": [
+    {
+      "file": "off_1400.wav",
+      "rpm": 1389,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_3700.wav",
+      "rpm": 3700,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_4500.wav",
+      "rpm": 4489,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_5300.wav",
+      "rpm": 5300,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_3600.wav",
+      "rpm": 3546,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4400.wav",
+      "rpm": 4356,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_5000.wav",
+      "rpm": 4925,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_5500.wav",
+      "rpm": 5500,
+      "load": true,
+      "gain": 1.0
+    }
+  ],
+  "pops": 1.0,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Matti Blume, CC BY-SA 4.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:Lamborghini_Huracan_Evo,_GIMS_2019,_Le_Grand-Saconnex_(GIMS1010).jpg"
+  }
+}

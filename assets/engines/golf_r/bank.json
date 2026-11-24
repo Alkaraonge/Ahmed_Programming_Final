@@ -1,0 +1,74 @@
+{
+  "id": "golf_r",
+  "title": "Volkswagen Golf R",
+  "engine": "Inline-4 · 2.0 turbo",
+  "credit": "EverydaySounds, freesound.org (CC0)",
+  "cylinders": 4,
+  "rate": 22050,
+  "idle": 900,
+  "redline": 6500,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_1450.wav",
+      "rpm": 1457,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_2500.wav",
+      "rpm": 2487,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_3500.wav",
+      "rpm": 3500,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_4500.wav",
+      "rpm": 4511,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_3000.wav",
+      "rpm": 2992,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4000.wav",
+      "rpm": 3970,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_5000.wav",
+      "rpm": 4962,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_5800.wav",
+      "rpm": 5785,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_6300.wav",
+      "rpm": 6268,
+      "load": true,
+      "gain": 1.0
+    }
+  ],
+  "pops": 0.9,
+  "turbo": 0.7,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Gogodance, CC BY-SA 4.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:Golf_R_mk7_side_view.jpg"
+  }
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lic_days_left">
+        <item quantity="other">%1$d days left</item>
+        <item quantity="one">%1$d day left</item>
+    </plurals>
+    <plurals name="prayer_hours">
+        <item quantity="other">%d hours</item>
+        <item quantity="one">%d hour</item>
+    </plurals>
+    <plurals name="prayer_minutes">
+        <item quantity="other">%d minutes</item>
+        <item quantity="one">%d minute</item>
+    </plurals>
+    <plurals name="taxi_fares_missing">
+        <item quantity="other">%1$s fares to enter</item>
+        <item quantity="one">%1$s fare to enter</item>
+    </plurals>
+    <plurals name="taxi_other_currency">
+        <item quantity="other">%1$s rides in another currency are not in these totals</item>
+        <item quantity="one">%1$s ride in another currency is not in these totals</item>
+    </plurals>
+    <plurals name="teach_accent_redo">
+        <item quantity="other">%1$d recordings use the old wording. Record them again the way people say them in %2$s.</item>
+        <item quantity="one">%1$d recording uses the old wording. Record it again the way people say it in %2$s.</item>
+    </plurals>
+    <plurals name="trips_count">
+        <item quantity="other">%1$s trips</item>
+        <item quantity="one">%1$s trip</item>
+    </plurals>
+    <plurals name="widget_days">
+        <item quantity="other">%s days ago</item>
+        <item quantity="one">%s day ago</item>
+    </plurals>
+    <plurals name="widget_hours">
+        <item quantity="other">%s hours ago</item>
+        <item quantity="one">%s hour ago</item>
+    </plurals>
+    <plurals name="widget_minutes">
+        <item quantity="other">%s minutes ago</item>
+        <item quantity="one">%s minute ago</item>
+    </plurals>
+</resources>

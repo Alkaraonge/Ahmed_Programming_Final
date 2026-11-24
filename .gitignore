@@ -1,0 +1,11 @@
+*.apk
+*.idsig
+*.keystore
+*.jks
+*.tar.gz
+*.bak
+*.log
+*.txt
+__pycache__/
+*.pyc
+.DS_Store

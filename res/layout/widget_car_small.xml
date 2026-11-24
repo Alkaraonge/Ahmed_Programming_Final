@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/w_root" android:background="@drawable/widget_bg" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="20.0sp" android:textStyle="bold" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Seal 05" android:maxLines="1" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+                <ProgressBar android:id="@id/w_batt_bar" android:layout_width="30.0dip" android:layout_height="12.0dip" android:max="100" android:progress="0" android:indeterminate="false" android:progressDrawable="@drawable/widget_battery" style="?android:progressBarStyleHorizontal" />
+                <FrameLayout android:background="@drawable/widget_battery_nub" android:layout_width="2.0dip" android:layout_height="5.0dip" android:layout_marginStart="1.0dip" />
+                <TextView android:textSize="14.0sp" android:textColor="@color/widget_ink" android:id="@id/w_batt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="— %" android:layout_marginStart="6.0dip" />
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView android:id="@id/w_ac" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_fan" android:tint="@color/widget_muted" android:contentDescription="@string/ac_title" />
+    </LinearLayout>
+    <TextView android:textSize="11.0sp" android:textColor="@color/widget_muted" android:ellipsize="end" android:id="@id/w_addr" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="" android:maxLines="1" android:textAlignment="viewStart" />
+    <ImageView android:id="@id/w_car" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="4.0dip" android:src="@drawable/seal05" android:scaleType="fitCenter" android:layout_weight="1.0" android:contentDescription="@null" />
+    <TextView android:textSize="11.0sp" android:textColor="@color/widget_muted" android:layout_gravity="end" android:id="@id/w_ago" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+</LinearLayout>

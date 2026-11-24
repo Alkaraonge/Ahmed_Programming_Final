@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="lic_days_left">
+        <item quantity="other">%1$d ڕۆژ ماوە</item>
+    </plurals>
+    <plurals name="prayer_hours">
+        <item quantity="other">%d کاتژمێر</item>
+        <item quantity="one">%d کاتژمێر</item>
+    </plurals>
+    <plurals name="prayer_minutes">
+        <item quantity="other">%d خولەک</item>
+        <item quantity="one">%d خولەک</item>
+    </plurals>
+    <plurals name="taxi_fares_missing">
+        <item quantity="other">%1$s کرێ ماون بنووسرێن</item>
+        <item quantity="one">%1$s کرێ ماوە بنووسرێت</item>
+    </plurals>
+    <plurals name="taxi_other_currency">
+        <item quantity="other">%1$s گەشت بە دراوێکی تر لەم کۆیانەدا نین</item>
+        <item quantity="one">%1$s گەشت بە دراوێکی تر لەم کۆیانەدا نییە</item>
+    </plurals>
+    <plurals name="teach_accent_redo">
+        <item quantity="other">%1$d تۆمار بە دەستەواژەی کۆنن. دووبارە تۆماریان بکەرەوە وەک لە %2$s دەیڵێن.</item>
+        <item quantity="one">%1$d تۆمار بە دەستەواژەی کۆنە. دووبارە تۆماری بکەرەوە وەک لە %2$s دەیڵێن.</item>
+    </plurals>
+    <plurals name="trips_count">
+        <item quantity="other">%1$s گەشت</item>
+        <item quantity="one">%1$s گەشت</item>
+    </plurals>
+    <plurals name="widget_days">
+        <item quantity="other">%s ڕۆژ لەمەوپێش</item>
+        <item quantity="one">%s ڕۆژ لەمەوپێش</item>
+    </plurals>
+    <plurals name="widget_hours">
+        <item quantity="other">%s کاتڞمێر لەمەوپێش</item>
+        <item quantity="one">%s کاتڞمێر لەمەوپێش</item>
+    </plurals>
+    <plurals name="widget_minutes">
+        <item quantity="other">%s خولەک لەمەوپێش</item>
+        <item quantity="one">%s خولەک لەمەوپێش</item>
+    </plurals>
+</resources>

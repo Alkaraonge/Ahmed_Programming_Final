@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme1_bg">#070B19</color><color name="theme1_card">#CC111936</color><color name="theme1_accent">#00F0FF</color>
+    <color name="theme2_bg">#1A140E</color><color name="theme2_card">#CC2B2118</color><color name="theme2_accent">#F5B041</color>
+    <color name="theme3_bg">#0A0A0C</color><color name="theme3_card">#CC16181D</color><color name="theme3_accent">#FF2A3C</color>
+    <color name="theme4_bg">#061523</color><color name="theme4_card">#CC0D253C</color><color name="theme4_accent">#38BDF8</color>
+    <color name="theme5_bg">#061712</color><color name="theme5_card">#CC0E2B22</color><color name="theme5_accent">#10B981</color>
+    <color name="theme6_bg">#1C1F24</color><color name="theme6_card">#CC2A2E35</color><color name="theme6_accent">#60A5FA</color>
+    <color name="theme7_bg">#0D071A</color><color name="theme7_card">#CC1B1133</color><color name="theme7_accent">#C084FC</color>
+    <color name="theme8_bg">#241B12</color><color name="theme8_card">#CC382A1C</color><color name="theme8_accent">#E09F5A</color>
+    <color name="theme9_bg">#E8EEF5</color><color name="theme9_card">#E6FFFFFF</color><color name="theme9_accent">#0284C7</color>
+    <color name="theme10_bg">#000000</color><color name="theme10_card">#CC0D0D0F</color><color name="theme10_accent">#E2E8F0</color>
+</resources>

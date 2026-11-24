@@ -1,0 +1,49 @@
+{
+  "id": "challenger_srt",
+  "title": "Dodge Challenger SRT",
+  "engine": "V8 · HEMI",
+  "credit": "JorisDJN, freesound.org (CC0)",
+  "cylinders": 8,
+  "rate": 22050,
+  "idle": 780,
+  "redline": 5600,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_780.wav",
+      "rpm": 764,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_1200.wav",
+      "rpm": 1203,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_2500.wav",
+      "rpm": 2494,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_2500.wav",
+      "rpm": 2475,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3200.wav",
+      "rpm": 3168,
+      "load": true,
+      "gain": 1.0
+    }
+  ],
+  "pops": 0.8,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Sicnag, CC BY 2.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:2012_Dodge_Challenger_SRT_392_(13459628545).jpg"
+  }
+}

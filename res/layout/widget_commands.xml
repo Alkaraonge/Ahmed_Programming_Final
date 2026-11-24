@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/w_root" android:background="@drawable/widget_bg" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/w_ac" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_w_fan" android:tint="@color/widget_muted" android:contentDescription="@null" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/widget_ink" android:id="@id/w_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ac_title" android:layout_marginStart="8.0dip" />
+        <TextView android:textSize="13.0sp" android:textColor="@color/widget_muted" android:id="@id/w_state" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="" android:maxLines="1" android:layout_weight="1.0" android:textAlignment="viewStart" android:layout_marginStart="8.0dip" />
+        <FrameLayout android:id="@id/w_mic" android:background="@drawable/widget_round_primary" android:layout_width="42.0dip" android:layout_height="42.0dip">
+            <ImageView android:layout_gravity="center" android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_widget_mic" android:contentDescription="@string/tap_and_speak" />
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="12.0dip" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/w_power" android:background="@drawable/widget_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginEnd="8.0dip">
+            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_power" android:tint="@color/widget_ink" android:contentDescription="@null" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_power_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="@string/cmd_power" android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/w_max" android:background="@drawable/widget_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginEnd="8.0dip">
+            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_snow" android:tint="@color/widget_ice" android:contentDescription="@null" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_max_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="@string/cmd_max_cooling" android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/w_auto" android:background="@drawable/widget_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:layout_width="22.0dip" android:layout_height="22.0dip" android:src="@drawable/ic_w_auto" android:tint="@color/widget_amber" android:contentDescription="@null" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_auto_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="@string/cmd_auto" android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+        <ImageView android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_w_thermo" android:tint="@color/widget_warm" android:contentDescription="@null" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_temp_label" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/temperature" android:maxLines="1" android:layout_weight="1.0" android:textAlignment="viewStart" android:layout_marginStart="8.0dip" />
+        <FrameLayout android:id="@id/w_temp_down" android:background="@drawable/widget_round" android:layout_width="44.0dip" android:layout_height="44.0dip" android:layout_marginEnd="8.0dip">
+            <ImageView android:layout_gravity="center" android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_w_remove" android:tint="@color/widget_ink" android:contentDescription="@string/cmd_temp_down" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/w_temp_up" android:background="@drawable/widget_round" android:layout_width="44.0dip" android:layout_height="44.0dip">
+            <ImageView android:layout_gravity="center" android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_w_add" android:tint="@color/widget_ink" android:contentDescription="@string/cmd_temp_up" />
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip">
+        <ImageView android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_w_fan" android:tint="@color/widget_blue" android:contentDescription="@null" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/widget_ink" android:ellipsize="end" android:id="@id/w_fan_label" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/fan" android:maxLines="1" android:layout_weight="1.0" android:textAlignment="viewStart" android:layout_marginStart="8.0dip" />
+        <FrameLayout android:id="@id/w_fan_down" android:background="@drawable/widget_round" android:layout_width="44.0dip" android:layout_height="44.0dip" android:layout_marginEnd="8.0dip">
+            <ImageView android:layout_gravity="center" android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_w_remove" android:tint="@color/widget_ink" android:contentDescription="@string/cmd_fan_down" />
+        </FrameLayout>
+        <FrameLayout android:id="@id/w_fan_up" android:background="@drawable/widget_round" android:layout_width="44.0dip" android:layout_height="44.0dip">
+            <ImageView android:layout_gravity="center" android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_w_add" android:tint="@color/widget_ink" android:contentDescription="@string/cmd_fan_up" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,67 @@
+{
+  "id": "maserati_gt",
+  "title": "Maserati GranTurismo S",
+  "engine": "V8 · 4.7 L",
+  "credit": "lmartins, victormalloy, freesound.org (CC BY 4.0, CC0)",
+  "cylinders": 8,
+  "rate": 22050,
+  "idle": 700,
+  "redline": 7500,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_700.wav",
+      "rpm": 705,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_1000.wav",
+      "rpm": 992,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_2400.wav",
+      "rpm": 2400,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3600.wav",
+      "rpm": 3582,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4200.wav",
+      "rpm": 4168,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_4800.wav",
+      "rpm": 4800,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_2400.wav",
+      "rpm": 2400,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "on_4200.wav",
+      "rpm": 4168,
+      "load": false,
+      "gain": 0.55
+    }
+  ],
+  "pops": 0.9,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Charles, CC BY 2.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:Maserati_GranTurismo_S_(2012)_(52868313645).jpg"
+  }
+}

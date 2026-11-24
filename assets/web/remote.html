@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="SmartBYD">
+<meta name="theme-color" content="#F2F4F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0F17" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="/s/car.png">
+<title>SmartBYD</title>
+<!--
+  The iPhone version of the SmartBYD phone app. It copies the app's design one-to-one: the same
+  colours, font (Vazirmatn, served by the car), card shapes, icons (Material + the SmartBYD fan),
+  layout and the floating tab bar. App texts come from the app itself (/s/strings-<lang>.json),
+  so the wording always matches what Saad confirmed; only web-only texts live below in T.
+-->
+<style>
+  @font-face { font-family: "Vazirmatn"; src: url(/s/font-regular.ttf) format("truetype"); font-weight: 400 500; font-display: swap; }
+  @font-face { font-family: "Vazirmatn"; src: url(/s/font-bold.ttf) format("truetype"); font-weight: 600 700; font-display: swap; }
+  :root {
+    --primary: #1F4FD8; --on-primary: #FFFFFF; --primary-container: #DEE6FB; --on-primary-container: #1F4FD8;
+    --bg: #F2F4F7; --surface: #FFFFFF; --ink: #070B14; --surface-variant: #E4E9F2; --muted: #6B7686;
+    --outline: #D3DAE6; --error: #D1435B; --success: #1E9E6A; --cool: #2F7DE1; --warm: #E0603A;
+    --shadow: 0 10px 30px rgba(7, 11, 20, .14), 0 2px 6px rgba(7, 11, 20, .06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary: #3B63DE; --primary-container: #1B2A55; --on-primary-container: #CBD7FA;
+      --bg: #0B0F17; --surface: #141A26; --ink: #EAEEF6; --surface-variant: #232B3A; --muted: #9AA6B8;
+      --outline: #2C3546; --shadow: 0 10px 30px rgba(0, 0, 0, .5);
+    }
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 16px/1.45 "Vazirmatn", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  button:disabled { opacity: .45; cursor: default; }
+  svg.i { width: 24px; height: 24px; fill: currentColor; flex: none; display: block; }
+  .page { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px;
+          padding: calc(20px + env(safe-area-inset-top)) 20px calc(116px + env(safe-area-inset-bottom)); }
+  .hidden { display: none !important; }
+  .dash-page { position: fixed; inset: 0; background: var(--bg); overflow-y: auto; z-index: 9; -webkit-overflow-scrolling: touch; }
+  .search { width: 100%; font: inherit; padding: 12px 14px; border-radius: 16px; border: 1px solid var(--outline);
+            background: var(--surface); color: var(--ink); outline: none; }
+  .dash-h { display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 600; color: var(--muted); padding: 8px 6px 0; }
+  .dash-h i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .light { display: block; width: 100%; text-align: start; padding: 12px 14px; }
+  .light + .light { border-top: 1px solid color-mix(in srgb, var(--outline) 60%, transparent); }
+  .light .top { display: flex; align-items: center; gap: 14px; }
+  .light .tile { width: 54px; height: 54px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex: none;
+                 position: relative; padding: 0; }
+  .light .tile svg { width: 38px; height: 38px; }
+  .light .tile .t { font-weight: 800; direction: ltr; }
+  .light .txt b { display: block; font-size: 16px; font-weight: 600; }
+  .light .txt small { display: block; font-size: 14px; color: var(--muted); }
+  .light .todo { margin: 10px 0 0 68px; padding: 12px; border-radius: 14px; font-size: 15px; }
+  [dir=rtl] .light .todo { margin: 10px 68px 0 0; }
+  .light .todo b { display: block; font-size: 14px; }
+  a.list-row { color: inherit; text-decoration: none; }
+  svg.i.chev { color: var(--muted); width: 22px; height: 22px; }
+  [dir=rtl] svg.i.chev, [dir=rtl] svg.i.flip { transform: scaleX(-1); }
+  .scrim { position: fixed; inset: 0; background: rgba(7, 11, 20, .45); z-index: 10; display: flex; align-items: center;
+           justify-content: center; padding: calc(16px + env(safe-area-inset-top)) 16px calc(16px + env(safe-area-inset-bottom)); }
+  .sheet { background: var(--surface); border-radius: 28px; width: 100%; max-width: 520px; max-height: 100%; overflow-y: auto;
+           padding: 22px 0; -webkit-overflow-scrolling: touch; }
+  .about-head { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0 22px 10px; }
+  .about-head img { width: 76px; height: 76px; border-radius: 50%; margin-bottom: 6px; }
+  .sheet .list-row { padding: 10px 22px; }
+  .warn { display: flex; gap: 10px; margin: 12px 22px 0; padding: 14px; border-radius: 18px; background: rgba(178, 106, 0, .10);
+          font-size: 14px; }
+  .warn svg.i { color: #B26A00; width: 20px; height: 20px; }
+  .legal-head { display: flex; align-items: center; gap: 6px; padding: 0 22px 6px 10px; }
+  .legal { padding: 0 22px; }
+  .legal h3 { font-size: 16px; font-weight: 600; margin: 16px 0 4px; }
+  .legal p { margin: 0; font-size: 15px; color: var(--muted); }
+
+  /* type scale (same sizes as the app) */
+  .h-small { font-size: 26px; font-weight: 700; line-height: 1.25; margin: 0; }
+  .h-medium { font-size: 32px; font-weight: 700; line-height: 1.15; }
+  .t-medium { font-size: 19px; font-weight: 600; }
+  .t-small { font-size: 16px; font-weight: 600; }
+  .b-small { font-size: 14px; color: var(--muted); }
+  .l-large { font-size: 17px; font-weight: 600; }
+  .l-small { font-size: 12px; font-weight: 500; }
+
+  /* header + status line */
+  .status { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 14px; color: var(--muted); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); flex: none; }
+  .dot.ok { background: var(--success); } .dot.bad { background: var(--error); }
+  .car { width: 100%; height: 180px; object-fit: contain; display: block; }
+
+  /* cards */
+  .card { background: var(--surface); border-radius: 24px; padding: 18px; }
+  .card.flush { padding: 0; overflow: hidden; }
+  .card-title { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+  .card-title svg.i { width: 20px; height: 20px; color: var(--primary); }
+  .section { font-size: 17px; font-weight: 600; color: var(--muted); padding: 6px 6px 0; }
+
+  /* round buttons */
+  .round { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+           border: 1px solid var(--outline); background: var(--surface); color: var(--primary); flex: none; }
+  .round svg.i { width: 25px; height: 25px; }
+  .round.filled { background: var(--primary); border-color: var(--primary); color: #fff; }
+  .round.cool { color: var(--cool); } .round.warm { color: var(--warm); }
+  .labeled { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0; }
+  .labeled .round { width: 60px; height: 60px; } .labeled .round svg.i { width: 27px; height: 27px; }
+  .labeled.compact { flex: none; width: 76px; } .labeled.compact .round { width: 56px; height: 56px; }
+  .labeled > span:last-child { font-size: 12px; font-weight: 500; color: var(--muted); text-align: center;
+                  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .row { display: flex; align-items: center; }
+  .spread { display: flex; justify-content: space-between; gap: 6px; }
+  button.round:active, .labeled:active .round, .tile:active, .pill:active, .fan-key:active { transform: scale(.96); }
+
+  /* A/C card */
+  .ac { display: flex; align-items: center; gap: 12px; }
+  .ac .info { flex: 1; min-width: 0; }
+  .ac .value.on { color: var(--primary); }
+
+  /* voice (Siri) card */
+  .voice { display: flex; align-items: center; gap: 16px; }
+  .voice .info { flex: 1; }
+  .mic { width: 72px; height: 72px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; flex: none; }
+  .mic svg.i { width: 34px; height: 34px; }
+
+  /* fan levels: fan icon in a circle, level as a small badge on the top-end edge */
+  .fans { display: flex; gap: 6px; padding-top: 6px; }
+  .fan-slot { flex: 1; display: flex; justify-content: center; }
+  .fan-key { position: relative; width: 100%; max-width: 56px; aspect-ratio: 1; border-radius: 50%;
+             border: 1px solid var(--outline); display: flex; align-items: center; justify-content: center; color: var(--primary); }
+  .fan-key svg.i { width: var(--s); height: auto; aspect-ratio: 1; }
+  .fan-key b { position: absolute; top: -4px; inset-inline-end: -2px; background: var(--primary); color: var(--on-primary);
+               font-size: 12px; font-weight: 700; line-height: 1.35; padding: 0 5px; border-radius: 999px; }
+
+  /* pills (Min / Max) */
+  .pills { display: flex; gap: 8px; margin-top: 10px; }
+  .pill { flex: 1; height: 44px; border-radius: 999px; background: var(--surface-variant); display: flex; align-items: center;
+          justify-content: center; gap: 6px; padding: 0 12px; font-size: 17px; font-weight: 600; }
+  .pill svg.i { width: 18px; height: 18px; color: var(--primary); }
+
+  /* car controls: a row per part, its two sides as pills; a press arms the pill, a second press sends it */
+  .cc-group { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; margin: 16px 2px 2px; }
+  .cc-group:first-of-type { margin-top: 4px; }
+  .cc-row { padding: 10px 0; border-bottom: 1px solid var(--surface-variant); }
+  .cc-row:last-child { border-bottom: 0; }
+  .cc-name { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; }
+  .cc-name svg.i { width: 20px; height: 20px; color: var(--primary); }
+  .cc .pills { margin-top: 8px; }
+  .pills.wrap { flex-wrap: wrap; }
+  .pills.wrap .pill { flex: 1 0 28%; }
+  .cc .pill { font-size: 16px; color: var(--primary); }
+  .cc .pill.arm { background: var(--primary); color: var(--on-primary); }
+  .cc-hint { font-size: 13px; color: var(--muted); margin: 0 2px 4px; }
+
+  /* temperature stepper */
+  .stepper { display: flex; align-items: center; }
+  .stepper .value { flex: 1; text-align: center; font-size: 32px; font-weight: 700; color: var(--muted); }
+  .stepper .value.up { color: var(--warm); } .stepper .value.down { color: var(--cool); }
+
+  /* tiles */
+  .tiles { display: flex; gap: 12px; }
+  .tile { flex: 1; background: var(--surface); border-radius: 20px; padding: 18px 12px; display: flex; flex-direction: column;
+          align-items: center; gap: 8px; color: var(--ink); }
+  .tile svg.i { width: 28px; height: 28px; color: var(--primary); }
+  .tile span { font-size: 17px; font-weight: 600; text-align: center; }
+
+  /* list rows (Siri, Settings) */
+  .list-row { display: flex; align-items: center; gap: 14px; padding: 12px 16px; min-height: 64px; width: 100%; text-align: start; }
+  .list-row + .list-row { border-top: 1px solid color-mix(in srgb, var(--outline) 60%, transparent); }
+  .badge { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex: none;
+           background: color-mix(in srgb, var(--primary) 12%, transparent); color: var(--primary); }
+  .badge svg.i { width: 22px; height: 22px; }
+  .badge.danger { background: color-mix(in srgb, var(--error) 12%, transparent); color: var(--error); }
+  .list-row .txt { flex: 1; min-width: 0; }
+  .list-row .txt b { display: block; font-size: 16px; font-weight: 600; }
+  .list-row .txt small { display: block; font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
+  .icon-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--muted); flex: none; }
+
+  /* segmented picker */
+  .seg { display: flex; gap: 4px; padding: 4px; border-radius: 16px; background: var(--surface-variant); }
+  .seg button { flex: 1; min-height: 40px; border-radius: 12px; font-size: 17px; font-weight: 600; padding: 6px; }
+  .seg button.on { background: var(--primary); color: var(--on-primary); }
+
+  /* pairing */
+  .code { width: 100%; font: inherit; font-size: 30px; font-weight: 700; letter-spacing: 10px; text-align: center; direction: ltr;
+          padding: 14px; border-radius: 16px; border: 1px solid var(--outline); background: var(--bg); color: var(--ink); outline: none; }
+  .code:focus { border-color: var(--primary); }
+  .primary-btn { width: 100%; height: 52px; border-radius: 999px; background: var(--primary); color: var(--on-primary);
+                 font-size: 17px; font-weight: 600; margin-top: 14px; }
+  ol { margin: 0; padding-inline-start: 22px; } ol li { margin-bottom: 6px; font-size: 15px; }
+
+  /* floating tab bar (same as the app) */
+  .tabbar { position: fixed; left: 20px; right: 20px; bottom: calc(14px + env(safe-area-inset-bottom)); max-width: 480px; margin: 0 auto;
+            background: var(--surface); border-radius: 32px; box-shadow: var(--shadow); padding: 8px; display: flex;
+            justify-content: space-evenly; align-items: center; height: 72px; z-index: 5; }
+  .tabbar button { display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 16px; border-radius: 28px;
+                   color: var(--muted); transition: background-color .2s, padding .2s; }
+  .tabbar button span { display: none; font-size: 17px; font-weight: 600; white-space: nowrap; }
+  .tabbar button.on { background: var(--primary); color: var(--on-primary); padding: 0 18px; }
+  .tabbar button.on span { display: inline; }
+
+  /* result banner, above the tab bar */
+  #toast { position: fixed; left: 20px; right: 20px; max-width: 480px; margin: 0 auto; bottom: calc(100px + env(safe-area-inset-bottom));
+           display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 18px; background: #1F2A44; color: #fff;
+           font-weight: 600; font-size: 15px; opacity: 0; transform: translateY(8px); transition: opacity .2s, transform .2s;
+           pointer-events: none; z-index: 6; }
+  #toast.show { opacity: 1; transform: none; }
+  #toast svg.i { width: 22px; height: 22px; }
+  #toast .ok { color: #34C77B; } #toast .fail { color: #FF6B6B; }
+  body.busy .act { pointer-events: none; opacity: .55; }
+
+  /* share board */
+  .composer textarea { width: 100%; font: inherit; padding: 12px 14px; border-radius: 16px; border: 1px solid var(--outline);
+                       background: var(--bg); color: var(--ink); outline: none; resize: none; min-height: 72px; }
+  .composer textarea:focus { border-color: var(--primary); }
+  .composer .bar { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+  .soft-btn, .send-btn { height: 48px; border-radius: 999px; display: flex; align-items: center; gap: 8px; padding: 0 20px;
+                         font-size: 17px; font-weight: 600; }
+  .soft-btn { background: color-mix(in srgb, var(--primary) 12%, transparent); color: var(--primary); }
+  .send-btn { background: var(--primary); color: var(--on-primary); margin-inline-start: auto; }
+  .soft-btn svg.i, .send-btn svg.i { width: 20px; height: 20px; }
+  .progress { height: 6px; border-radius: 3px; background: var(--surface-variant); overflow: hidden; margin-top: 10px; }
+  .progress i { display: block; height: 100%; width: 0; background: var(--primary); transition: width .2s; }
+  .share-row .txt b { font-weight: 600; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .share-row .acts { display: flex; gap: 6px; flex: none; }
+  .share-row .acts .icon-btn { background: color-mix(in srgb, var(--primary) 12%, transparent); color: var(--primary); }
+  .share-row .acts .icon-btn.danger { background: color-mix(in srgb, var(--error) 12%, transparent); color: var(--error); }
+  .share-row .acts svg.i { width: 20px; height: 20px; }
+  .badge.car { background: color-mix(in srgb, var(--success) 12%, transparent); color: var(--success); }
+  .empty { text-align: center; padding: 28px 24px; }
+  .empty svg.i { width: 48px; height: 48px; color: var(--primary); margin: 0 auto 8px; }
+  .tabbar button { position: relative; }
+  .tabbar button .new { position: absolute; top: 12px; inset-inline-end: 10px; width: 9px; height: 9px; border-radius: 50%;
+                        background: var(--error); display: none; }
+  .tabbar button.has-new .new { display: block; }
+  .sheet.confirm { padding: 22px; }
+  .confirm .bar { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; }
+</style>
+</head>
+<body>
+
+<!-- ============ Pairing (first time on this iPhone) ============ -->
+<main id="pairPage" class="page hidden">
+  <div>
+    <h1 class="h-small" data-car>SmartBYD</h1>
+    <div class="status"><span class="dot" data-dot></span><span data-state></span></div>
+  </div>
+  <img class="car" src="/s/car.png" alt="">
+  <section class="card">
+    <div class="card-title"><svg class="i" data-icon="link_off"></svg><span data-t="pairTitle"></span></div>
+    <p class="b-small" style="margin:0 0 14px" data-t="pairHint"></p>
+    <input id="code" class="code" type="tel" inputmode="numeric" maxlength="10" autocomplete="one-time-code" placeholder="••••••">
+    <button class="primary-btn" id="pairBtn" data-t="pair"></button>
+  </section>
+  <div class="section" data-s="language"></div>
+  <div class="seg" data-lang-picker></div>
+  <section class="card flush">
+    <button class="list-row" data-about>
+      <span class="badge"><svg class="i" data-icon="info"></svg></span>
+      <span class="txt"><b data-s="aboutTitle"></b><small data-s="aboutMadeBy"></small></span>
+      <svg class="i chev" data-icon="chevron_right"></svg>
+    </button>
+  </section>
+</main>
+
+<!-- ============ Home ============ -->
+<main id="homePage" class="page hidden">
+  <div>
+    <h1 class="h-small" data-car>SmartBYD</h1>
+    <div class="status"><span class="dot" data-dot></span><span data-state></span></div>
+  </div>
+  <img class="car" src="/s/car.png" alt="">
+
+  <!-- live A/C state, as last read by the car -->
+  <section class="card ac">
+    <div class="info">
+      <div class="t-small" style="color:var(--muted)" data-s="acTitle"></div>
+      <div class="h-medium value" id="acValue">—</div>
+      <div class="b-small" id="acUpdated"></div>
+    </div>
+    <div id="acActions" class="row" style="gap:12px;align-items:flex-start"></div>
+  </section>
+
+  <!-- voice: on iPhone that's Siri -->
+  <section class="card voice">
+    <div class="info">
+      <div class="t-medium">Siri</div>
+      <div class="b-small" data-t="siriTitle"></div>
+    </div>
+    <button class="mic" id="toSiri" aria-label="Siri"><svg class="i" data-icon="mic"></svg></button>
+  </section>
+
+  <div class="spread" id="quick"></div>
+
+  <section class="card">
+    <div class="card-title"><svg class="i" data-icon="fan"></svg><span data-s="fanLevel"></span></div>
+    <div class="fans" id="fans"></div>
+    <div class="pills" id="fanPills"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-title"><svg class="i" data-icon="thermostat"></svg><span data-s="temp"></span></div>
+    <div class="stepper">
+      <button class="round cool" id="tDown" aria-label="−"><svg class="i" data-icon="remove"></svg></button>
+      <div class="value" id="tValue">0</div>
+      <button class="round warm" id="tUp" aria-label="+"><svg class="i" data-icon="add"></svg></button>
+    </div>
+    <div class="pills" id="tempPills"></div>
+  </section>
+
+  <div class="tiles" id="tiles"></div>
+
+  <!-- doors, windows, sunroof, lights, drive mode: only when the car says its head unit takes them (DiLink 3 / 5 / 5.1 / 100) -->
+  <section class="card cc hidden" id="carControls"></section>
+</main>
+
+<!-- ============ Share board (messages and files with the car) ============ -->
+<main id="sharePage" class="page hidden">
+  <h1 class="h-small" data-s="shareTitle"></h1>
+  <section class="card composer">
+    <textarea id="shareText" rows="2" maxlength="4000"></textarea>
+    <div class="bar">
+      <label class="soft-btn" for="shareFiles"><svg class="i" data-icon="attach_file"></svg><span data-s="shareFile"></span></label>
+      <input id="shareFiles" type="file" multiple hidden>
+      <button class="send-btn" id="shareSend"><svg class="i flip" data-icon="send"></svg><span data-s="shareSend"></span></button>
+    </div>
+    <div id="shareUp" class="hidden">
+      <div class="b-small" id="shareUpName" style="margin-top:12px"></div>
+      <div class="progress"><i id="shareUpBar"></i></div>
+    </div>
+  </section>
+  <section class="card flush hidden" id="shareList"></section>
+  <div class="empty hidden" id="shareEmpty">
+    <svg class="i" data-icon="share"></svg>
+    <div class="t-medium" data-s="shareEmpty"></div>
+    <div class="b-small" data-s="shareEmptyHint"></div>
+  </div>
+</main>
+
+<!-- ============ Siri ============ -->
+<main id="siriPage" class="page hidden">
+  <h1 class="h-small" data-t="siriTitle"></h1>
+  <section class="card"><ol id="siriSteps"></ol><p class="b-small" style="margin:10px 0 0" data-t="siriNote"></p></section>
+  <section class="card flush" id="siriList"></section>
+</main>
+
+<!-- ============ Settings ============ -->
+<main id="settingsPage" class="page hidden">
+  <h1 class="h-small" data-s="settings"></h1>
+  <div class="section" data-s="language"></div>
+  <div class="seg" data-lang-picker></div>
+  <div class="section" data-s="carLink"></div>
+  <section class="card flush">
+    <div class="list-row">
+      <span class="badge"><svg class="i" data-icon="directions_car"></svg></span>
+      <span class="txt"><b data-car>SmartBYD</b><small><span data-state></span></small></span>
+      <span class="dot" data-dot></span>
+    </div>
+    <button class="list-row" id="forget">
+      <span class="badge danger"><svg class="i" data-icon="logout"></svg></span>
+      <span class="txt"><b style="color:var(--error)" data-t="forget"></b></span>
+    </button>
+  </section>
+  <section class="card flush">
+    <button class="list-row" data-dash>
+      <span class="badge" style="color:#E53935;background:rgba(229,57,53,.12)"><svg class="i" data-icon="warning"></svg></span>
+      <span class="txt"><b data-s="dashTitle"></b><small data-s="dashSubtitle"></small></span>
+      <svg class="i chev" data-icon="chevron_right"></svg>
+    </button>
+  </section>
+  <section class="card flush">
+    <button class="list-row" data-about>
+      <span class="badge"><svg class="i" data-icon="info"></svg></span>
+      <span class="txt"><b data-s="aboutTitle"></b><small data-s="aboutMadeBy"></small></span>
+      <svg class="i chev" data-icon="chevron_right"></svg>
+    </button>
+  </section>
+</main>
+
+<!-- ============ Dashboard lights (same guide as the app) ============ -->
+<div class="dash-page hidden" id="dash">
+  <div class="page" style="padding-bottom:calc(32px + env(safe-area-inset-bottom))">
+    <div class="legal-head" style="padding:0"><button class="icon-btn" id="dashBack" aria-label="Back"><svg class="i flip" data-icon="arrow_back"></svg></button>
+      <div><div class="h-small" data-s="dashTitle"></div><div class="b-small" data-s="dashSubtitle"></div></div></div>
+    <input id="dashQ" class="search" type="search" autocomplete="off">
+    <div id="dashList"></div>
+    <p class="b-small" style="text-align:center" data-s="dashSource"></p>
+  </div>
+</div>
+
+<!-- ============ About SmartBYD (same as the app) ============ -->
+<div class="scrim hidden" id="about">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div id="aboutMain">
+      <div class="about-head">
+        <img src="/s/logo.png" alt="SmartBYD">
+        <div class="h-small">SmartBYD</div>
+        <div class="t-small" style="color:var(--primary);text-align:center" data-s="aboutMadeBy"></div>
+      </div>
+      <a class="list-row" href="https://wa.me/9647805570559">
+        <span class="badge" style="color:#1FA855;background:rgba(31,168,85,.12)"><svg class="i" data-icon="chat"></svg></span>
+        <span class="txt"><b data-s="aboutWhatsapp"></b><small dir="ltr">+964 780 557 0559</small></span>
+        <svg class="i chev" data-icon="chevron_right"></svg>
+      </a>
+      <a class="list-row" href="tel:+9647518872559">
+        <span class="badge"><svg class="i" data-icon="call"></svg></span>
+        <span class="txt"><b data-s="aboutOrders"></b><small dir="ltr">+964 751 887 2559</small></span>
+        <svg class="i chev" data-icon="chevron_right"></svg>
+      </a>
+      <button class="list-row" data-legal="privacy">
+        <span class="badge"><svg class="i" data-icon="privacy_tip"></svg></span>
+        <span class="txt"><b data-s="privacyTitle"></b></span><svg class="i chev" data-icon="chevron_right"></svg>
+      </button>
+      <button class="list-row" data-legal="terms">
+        <span class="badge"><svg class="i" data-icon="gavel"></svg></span>
+        <span class="txt"><b data-s="termsTitle"></b></span><svg class="i chev" data-icon="chevron_right"></svg>
+      </button>
+      <div class="warn"><svg class="i" data-icon="warning"></svg><span data-s="aboutWarning"></span></div>
+      <p class="b-small" style="text-align:center;margin:12px 22px 0" data-s="aboutRights"></p>
+      <button class="primary-btn" style="width:calc(100% - 44px);margin:16px 22px 0" id="closeAbout" data-t="done"></button>
+    </div>
+    <div id="aboutLegal" class="hidden">
+      <div class="legal-head"><button class="icon-btn" id="legalBack" aria-label="Back"><svg class="i flip" data-icon="arrow_back"></svg></button>
+        <div class="t-medium" id="legalTitle"></div></div>
+      <div id="legalBody" class="legal"></div>
+    </div>
+  </div>
+</div>
+
+<!-- delete from the share board -->
+<div class="scrim hidden" id="confirmDel">
+  <div class="sheet confirm" role="dialog" aria-modal="true">
+    <div class="t-medium" data-s="shareDelete"></div>
+    <p class="b-small" id="confirmDelName" style="overflow-wrap:anywhere"></p>
+    <p style="margin:0" data-s="shareDeleteConfirm"></p>
+    <div class="bar">
+      <button class="soft-btn" id="confirmNo" data-t="cancel"></button>
+      <button class="send-btn" style="margin:0;background:var(--error)" id="confirmYes" data-s="shareDelete"></button>
+    </div>
+  </div>
+</div>
+
+<nav class="tabbar hidden" id="tabbar">
+  <button data-tab="home"><svg class="i" data-icon="home"></svg><span data-s="tabHome"></span></button>
+  <button data-tab="share"><svg class="i" data-icon="share"></svg><span data-s="shareTitle"></span><i class="new"></i></button>
+  <button data-tab="siri"><svg class="i" data-icon="record_voice_over"></svg><span>Siri</span></button>
+  <button data-tab="settings"><svg class="i" data-icon="settings"></svg><span data-s="tabSettings"></span></button>
+</nav>
+
+<div id="toast"></div>
+
+<script>
+"use strict";
+const ICONS = {"lock": "<path d=\"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z\"/>", "inventory_2": "<path d=\"M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2zm-5 12H9v-2h6v2zm5-7H4V4l16-.02V7z\"/>", "swap_horiz": "<path d=\"M6.99 11 3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z\"/>", "window": "<path d=\"M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 9h-7V4h7v7zm-9-7v7H4V4h7zm-7 9h7v7H4v-7zm9 7v-7h7v7h-7z\"/>", "blinds": "<path d=\"M20 19V3H4v16H2v2h20v-2h-2zM16 9h2v2h-2V9zm-2 2H6V9h8v2zm4-4h-2V5h2v2zm-4-2v2H6V5h8zM6 19v-6h8v1.82c-.45.32-.75.84-.75 1.43 0 .97.78 1.75 1.75 1.75s1.75-.78 1.75-1.75c0-.59-.3-1.12-.75-1.43V13h2v6H6z\"/>", "roofing": "<path d=\"M13 18h-2v-2h2v2zm2-4H9v6h6v-6zm4-4.7V4h-3v2.6L12 3 2 12h3l7-6.31L19 12h3l-3-2.7z\"/>", "lightbulb": "<path d=\"M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z\"/>", "speed": "<path d=\"m20.38 8.57-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44zm-9.79 6.84a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z\"/>", "ac_unit": "<path d=\"M22 11h-4.17l3.24-3.24-1.41-1.42L15 11h-2V9l4.66-4.66-1.42-1.41L13 6.17V2h-2v4.17L7.76 2.93 6.34 4.34 11 9v2H9L4.34 6.34 2.93 7.76 6.17 11H2v2h4.17l-3.24 3.24 1.41 1.42L9 13h2v2l-4.66 4.66 1.42 1.41L11 17.83V22h2v-4.17l3.24 3.24 1.42-1.41L13 15v-2h2l4.66 4.66 1.41-1.42L17.83 13H22z\"/>", "add": "<path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/>", "air": "<path d=\"M14.5 17c0 1.65-1.35 3-3 3s-3-1.35-3-3h2c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1H2v-2h9.5c1.65 0 3 1.35 3 3zM19 6.5C19 4.57 17.43 3 15.5 3S12 4.57 12 6.5h2c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S16.33 8 15.5 8H2v2h13.5c1.93 0 3.5-1.57 3.5-3.5zm-.5 4.5H2v2h16.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5v2c1.93 0 3.5-1.57 3.5-3.5S20.43 11 18.5 11z\"/>", "arrow_back": "<path d=\"M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z\"/>", "autorenew": "<path d=\"M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8A5.87 5.87 0 0 1 6 12c0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z\"/>", "bolt": "<path d=\"M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z\"/>", "call": "<path d=\"M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z\"/>", "chat": "<path d=\"M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z\"/>", "check_circle": "<path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z\"/>", "chevron_right": "<path d=\"M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"/>", "content_copy": "<path d=\"M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z\"/>", "directions_car": "<path d=\"M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z\"/>", "error": "<path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z\"/>", "gavel": "<path d=\"m5.25 8.069 2.83-2.827 14.134 14.15-2.83 2.827zm4.236-4.242L12.314.998l5.657 5.656-2.828 2.83zM.999 12.315l2.828-2.829 5.657 5.657-2.828 2.828zM1 21h12v2H1z\"/>", "home": "<path d=\"M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z\"/>", "info": "<path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z\"/>", "keyboard_arrow_down": "<path d=\"M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z\"/>", "keyboard_arrow_up": "<path d=\"M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z\"/>", "keyboard_double_arrow_down": "<path d=\"M18 6.41 16.59 5 12 9.58 7.41 5 6 6.41l6 6z\"/><path d=\"m18 13-1.41-1.41L12 16.17l-4.59-4.58L6 13l6 6z\"/>", "keyboard_double_arrow_up": "<path d=\"M6 17.59 7.41 19 12 14.42 16.59 19 18 17.59l-6-6z\"/><path d=\"m6 11 1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z\"/>", "language": "<path d=\"M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a7.987 7.987 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z\"/>", "link_off": "<path d=\"M17 7h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.43-.98 2.63-2.31 2.98l1.46 1.46C20.88 15.61 22 13.95 22 12c0-2.76-2.24-5-5-5zm-1 4h-2.19l2 2H16zM2 4.27l3.11 3.11A4.991 4.991 0 0 0 2 12c0 2.76 2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1 0-1.59 1.21-2.9 2.76-3.07L8.73 11H8v2h2.73L13 15.27V17h1.73l4.01 4L20 19.74 3.27 3 2 4.27z\"/>", "logout": "<path d=\"m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z\"/>", "mic": "<path d=\"M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z\"/>", "power_settings_new": "<path d=\"M13 3h-2v10h2V3zm4.83 2.17-1.42 1.42A6.92 6.92 0 0 1 19 12c0 3.87-3.13 7-7 7A6.995 6.995 0 0 1 7.58 6.58L6.17 5.17A8.932 8.932 0 0 0 3 12a9 9 0 0 0 18 0c0-2.74-1.23-5.18-3.17-6.83z\"/>", "privacy_tip": "<path d=\"M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z\"/>", "record_voice_over": "<circle cx=\"9\" cy=\"9\" r=\"4\"/><path d=\"M9 15c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm7.76-9.64-1.68 1.69c.84 1.18.84 2.71 0 3.89l1.68 1.69c2.02-2.02 2.02-5.07 0-7.27zM20.07 2l-1.63 1.63c2.77 3.02 2.77 7.56 0 10.74L20.07 16c3.9-3.89 3.91-9.95 0-14z\"/>", "remove": "<path d=\"M19 13H5v-2h14v2z\"/>", "settings": "<path d=\"M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z\"/>", "severe_cold": "<path d=\"m12 10.41 4-4L14.59 5 12 7.59V4h-2v3.59L7.41 5 6 6.41l4 4V12H8.41l-4-4L3 9.41 5.59 12H2v2h3.59L3 16.59 4.41 18l4-4H10v1.59l-4 4L7.41 21 10 18.41V22h2v-3.59L14.59 21 16 19.59l-4-4V14h1.59l4 4L19 16.59 16.41 14H20v-2h-8zM19 2h2v5h-2zm0 6h2v2h-2z\"/>", "thermostat": "<path d=\"M15 13V5c0-1.66-1.34-3-3-3S9 3.34 9 5v8c-1.21.91-2 2.37-2 4 0 2.76 2.24 5 5 5s5-2.24 5-5c0-1.63-.79-3.09-2-4zm-4-2V5c0-.55.45-1 1-1s1 .45 1 1v1h-1v1h1v2h-1v1h1v1h-2z\"/>", "warning": "<path d=\"M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z\"/>", "waves": "<path d=\"M17 16.99c-1.35 0-2.2.42-2.95.8-.65.33-1.18.6-2.05.6-.9 0-1.4-.25-2.05-.6-.75-.38-1.57-.8-2.95-.8s-2.2.42-2.95.8c-.65.33-1.17.6-2.05.6v1.95c1.35 0 2.2-.42 2.95-.8.65-.33 1.17-.6 2.05-.6s1.4.25 2.05.6c.75.38 1.57.8 2.95.8s2.2-.42 2.95-.8c.65-.33 1.18-.6 2.05-.6.9 0 1.4.25 2.05.6.75.38 1.58.8 2.95.8v-1.95c-.9 0-1.4-.25-2.05-.6-.75-.38-1.6-.8-2.95-.8zm0-4.45c-1.35 0-2.2.43-2.95.8-.65.32-1.18.6-2.05.6-.9 0-1.4-.25-2.05-.6-.75-.38-1.57-.8-2.95-.8s-2.2.43-2.95.8c-.65.32-1.17.6-2.05.6v1.95c1.35 0 2.2-.43 2.95-.8.65-.35 1.15-.6 2.05-.6s1.4.25 2.05.6c.75.38 1.57.8 2.95.8s2.2-.43 2.95-.8c.65-.35 1.15-.6 2.05-.6s1.4.25 2.05.6c.75.38 1.58.8 2.95.8v-1.95c-.9 0-1.4-.25-2.05-.6-.75-.38-1.6-.8-2.95-.8zm2.95-8.08c-.75-.38-1.58-.8-2.95-.8s-2.2.42-2.95.8c-.65.32-1.18.6-2.05.6-.9 0-1.4-.25-2.05-.6-.75-.37-1.57-.8-2.95-.8s-2.2.42-2.95.8c-.65.33-1.17.6-2.05.6v1.93c1.35 0 2.2-.43 2.95-.8.65-.33 1.17-.6 2.05-.6s1.4.25 2.05.6c.75.38 1.57.8 2.95.8s2.2-.43 2.95-.8c.65-.32 1.18-.6 2.05-.6.9 0 1.4.25 2.05.6.75.38 1.58.8 2.95.8V5.04c-.9 0-1.4-.25-2.05-.58zM17 8.09c-1.35 0-2.2.43-2.95.8-.65.35-1.15.6-2.05.6s-1.4-.25-2.05-.6c-.75-.38-1.57-.8-2.95-.8s-2.2.43-2.95.8c-.65.35-1.15.6-2.05.6v1.95c1.35 0 2.2-.43 2.95-.8.65-.32 1.18-.6 2.05-.6s1.4.25 2.05.6c.75.38 1.57.8 2.95.8s2.2-.43 2.95-.8c.65-.32 1.18-.6 2.05-.6.9 0 1.4.25 2.05.6.75.38 1.58.8 2.95.8V9.49c-.9 0-1.4-.25-2.05-.6-.75-.38-1.6-.8-2.95-.8z\"/>", "wb_sunny": "<path d=\"M6.76 4.84l-1.8-1.79l-1.41 1.41l1.79 1.79l1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41l-1.79 1.79l1.41 1.41l1.79-1.79zm-3.21 13.7l1.79 1.8l1.41-1.41l-1.8-1.79l-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6s-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41l1.79-1.8l-1.41-1.41l-1.79 1.8z\"/>", "share": "<path d=\"M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z\"/>", "attach_file": "<path d=\"M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z\"/>", "send": "<path d=\"M2.01 21 23 12 2.01 3 2 10l15 2-15 2z\"/>", "delete": "<path d=\"M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z\"/>", "file": "<path d=\"M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z\"/>", "image": "<path d=\"M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z\"/>", "movie": "<path d=\"M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z\"/>", "link": "<path d=\"M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z\"/>", "notes": "<path d=\"M4 9h16v2H4zm0 4h10v2H4z\"/>", "fan": "<path fill-rule=\"evenodd\" d=\"M11.00,8.50 C8.75,6.70 8.28,2.94 10.71,1.45 C13.25,0.06 17.65,1.35 17.70,4.27 C17.81,6.39 15.69,7.71 13.87,8.95 C12.92,8.37 11.93,8.18 11.00,8.50 Z M15.53,12.89 C18.22,11.84 21.71,13.30 21.78,16.16 C21.72,19.05 18.40,22.22 15.85,20.80 C13.96,19.84 13.88,17.34 13.70,15.15 C14.69,14.61 15.34,13.85 15.53,12.89 Z M9.47,14.62 C9.03,17.47 6.02,19.76 3.50,18.39 C1.04,16.89 -0.05,12.43 2.46,10.93 C4.23,9.77 6.44,10.95 8.42,11.90 C8.39,13.02 8.73,13.97 9.47,14.62 Z M9.30,12a2.7,2.7 0 1,0 5.40,0a2.7,2.7 0 1,0 -5.40,0Z M10.75,12a1.25,1.25 0 1,0 2.50,0a1.25,1.25 0 1,0 -2.50,0Z\"/>"};
+
+// Web-only texts (pairing, Siri setup). Everything else comes from the app (S).
+const T = {
+  ar: { pairTitle: "إقران هذا الهاتف", pair: "إقران", ccAgain: "اضغط مرة ثانية", ccHint: "اضغط الزر مرتين ليتنفذ الأمر.",
+    pairHint: "في السيارة: الإعدادات ← التحكم من الهاتف ← «إقران هاتف». اكتب الرمز المكوّن من 6 أرقام هنا.",
+    NO_CODE: "لا يوجد رمز فعّال في السيارة. اضغط «إقران هاتف» في السيارة أولاً.",
+    EXPIRED: "انتهت صلاحية هذا الرمز. اضغط «إقران هاتف» في السيارة للحصول على رمز جديد.",
+    LOCKED: "محاولات خاطئة كثيرة. اضغط «إقران هاتف» في السيارة للحصول على رمز جديد.",
+    INCOMPLETE: "اكتب الأرقام الستة كاملة.",
+    WRONG: "الرمز خطأ — بقيت {n} محاولات. تأكد من الأرقام على شاشة السيارة.",
+    cancel: "إلغاء", wrongCode: "الرمز خطأ أو انتهت صلاحيته", paired: "تم الإقران ✓", forget: "إلغاء إقران هذا الهاتف", done: "تم",
+    sending: "جارٍ الإرسال…", notReach: "السيارة غير متاحة — تأكد أنها متصلة بنقطة الاتصال", offline: "السيارة غير متاحة",
+    siriTitle: "أوامر صوتية عبر Siri", copy: "نسخ الرابط", copied: "تم النسخ",
+    siriSteps: ["افتح تطبيق «الاختصارات» (Shortcuts) واضغط +.", "أضف إجراء «الحصول على محتويات URL» (Get Contents of URL).",
+      "الصق الرابط المنسوخ للأمر الذي تريده.", "أضف إجراء «عرض النتيجة» أو «نطق النص» (اختياري) ليجيبك Siri.",
+      "سمِّ الاختصار بالعبارة التي ستقولها، مثلاً «شغل المكيف».", "قل: «يا Siri، شغل المكيف»."],
+    siriNote: "Siri يدعم العربية والإنجليزية (لا يدعم الكردية). الرابط يحتوي مفتاح هذا الهاتف — لا تشاركه." },
+  ckb: { pairTitle: "ڕەبتکردنی ئەم مۆبایلە", pair: "ڕەبتکردن", ccAgain: "دووبارە دایگرە", ccHint: "دوگمەکە دوو جار دابگرە بۆ جێبەجێکردن.",
+    pairHint: "لە ئۆتۆمبێل: ڕێکخستن ← کۆنترۆڵ لە مۆبایلەوە ← «ڕەبتکردنی مۆبایل». کۆدە 6 ژمارەییەکە لێرە بنووسە.",
+    NO_CODE: "هیچ کۆدێکی چالاک لە ئۆتۆمبێلەکەدا نییە. سەرەتا لە ئۆتۆمبێلەکە «ڕەبتکردنی مۆبایل» دابگرە.",
+    EXPIRED: "ئەم کۆدە بەسەرچووە. بۆ کۆدێکی نوێ لە ئۆتۆمبێلەکە «ڕەبتکردنی مۆبایل» دابگرە.",
+    LOCKED: "هەوڵی هەڵەی زۆر درا. بۆ کۆدێکی نوێ لە ئۆتۆمبێلەکە «ڕەبتکردنی مۆبایل» دابگرە.",
+    INCOMPLETE: "هەر شەش ژمارەکە بنووسە.",
+    WRONG: "کۆدەکە هەڵەیە — {n} هەوڵ ماوە. ژمارەکان لەسەر شاشەی ئۆتۆمبێل بپشکنە.",
+    cancel: "هەڵوەشاندنەوە", wrongCode: "کۆدەکە هەڵەیە یان بەسەرچووە", paired: "ڕەبت کرا ✓", forget: "هەڵوەشاندنەوەی ڕەبتی ئەم مۆبایلە", done: "تەواو",
+    sending: "چاوەڕێکە...", notReach: "ئۆتۆمبێل بەردەست نییە — دڵنیابە بە هۆتسپۆتەکە بەستراوە", offline: "ئۆتۆمبێل بەردەست نییە",
+    siriTitle: "فەرمانی دەنگی بە Siri", copy: "کۆپیکردنی لینک", copied: "کۆپی کرا",
+    siriSteps: ["ئەپی Shortcuts بکەرەوە و + دابگرە.", "کردارێکی «Get Contents of URL» زیاد بکە.",
+      "لینکە کۆپیکراوەکەی فەرمانەکە دابنێ.", "(ئارەزوومەندانە) «Speak Text» زیاد بکە تا Siri وەڵام بداتەوە.",
+      "ناوی کورتکراوەکە بکە بە ئەو ڕستەیەی دەیڵێیت، بۆ نموونە «A/C on».", "بڵێ: «Hey Siri, A/C on»."],
+    siriNote: "Siri کوردی پشتگیری ناکات — ناوی عەرەبی یان ئینگلیزی بەکاربهێنە. لینکەکە کلیلی ئەم مۆبایلەی تێدایە — بڵاوی مەکەرەوە." },
+  en: { pairTitle: "Pair this phone", pair: "Pair", ccAgain: "Tap again", ccHint: "Tap a button twice to send it.",
+    pairHint: "In the car: Settings → Phone remote → “Pair a phone”. Type the 6-digit code here.",
+    NO_CODE: "No code is active in the car. Tap “Pair a phone” in the car first.",
+    EXPIRED: "This code expired. Tap “Pair a phone” in the car for a new one.",
+    LOCKED: "Too many wrong tries. Tap “Pair a phone” in the car for a new code.",
+    INCOMPLETE: "Type all 6 digits.",
+    WRONG: "Wrong code — {n} tries left. Check the digits on the car screen.",
+    cancel: "Cancel", wrongCode: "Wrong or expired code", paired: "Paired ✓", forget: "Unpair this phone", done: "Done",
+    sending: "Sending…", notReach: "Car not reachable — make sure it is on your hotspot", offline: "Car not reachable",
+    siriTitle: "Voice commands with Siri", copy: "Copy link", copied: "Copied",
+    siriSteps: ["Open the Shortcuts app and tap +.", "Add the action “Get Contents of URL”.",
+      "Paste the copied link of the command you want.", "Optional: add “Show Result” or “Speak Text” so Siri answers.",
+      "Name the shortcut with the phrase you will say, e.g. “A/C on”.", "Say: “Hey Siri, A/C on”."],
+    siriNote: "Siri speaks Arabic and English (not Kurdish). The link contains this phone's key — don't share it." },
+};
+// English fallback for the app texts, used only until /s/strings-<lang>.json arrives.
+const S_FALLBACK = { acTitle: "A/C", acUpdated: "Updated {t}", on: "On", off: "Off", min: "Min", max: "Max",
+  connected: "Connected", lost: "Car not found — check the hotspot", fanLevel: "Fan level", temp: "Temperature (degrees)",
+  tabHome: "Home", tabSettings: "Settings", settings: "Settings", language: "Language", carLink: "Car connection",
+  shareTitle: "Share", shareEmpty: "Nothing shared yet", shareTypeHint: "Type a message or paste a link", shareSend: "Send",
+  shareFile: "File", shareYou: "You", shareCar: "Car", shareSending: "Sending {t}…", shareTooBig: "Files up to {t} only",
+  shareNoSpace: "The car is out of storage", shareFailed: "Something went wrong — check the connection to the car",
+  shareEmptyHint: "Messages and files sent from a phone or from here stay in the car until you delete them.",
+  shareCopied: "Copied", shareDelete: "Delete", shareDeleteConfirm: "It will be removed from the car for everyone.", cmd: {} };
+
+// Same icon per command as the app (CommandIcons.kt).
+const CMD_ICON = { AC_ON: "ac_unit", AC_OFF: "power_settings_new", MAX_COOLING: "severe_cold", RECIRCULATE: "autorenew",
+  AUTO_MODE: "bolt", VENTILATION: "air", FRONT_DEFROST: "wb_sunny", REAR_DEFROST: "waves",
+  TEMP_UP: "keyboard_arrow_up", TEMP_DOWN: "keyboard_arrow_down", TEMP_MAX: "keyboard_double_arrow_up",
+  TEMP_MIN: "keyboard_double_arrow_down", FAN_MAX: "fan", FAN_MIN: "fan", FAN_LEVEL: "fan", FAN_UP: "fan", FAN_DOWN: "fan" };
+// Siri phrases (Siri has no Kurdish): [command, amount, Arabic, English]
+const SIRI = [
+  ["AC_ON", 1, "شغل المكيف", "A/C on"], ["AC_OFF", 1, "طفي المكيف", "A/C off"],
+  ["MAX_COOLING", 1, "برد ماكس", "Max cooling"], ["TEMP_UP", 2, "زيد الحرارة درجتين", "Warmer"],
+  ["TEMP_DOWN", 2, "نزل الحرارة درجتين", "Cooler"], ["FAN_LEVEL", 3, "الهوا على ثلاثة", "Fan three"],
+  ["FAN_MAX", 1, "هوا ماكس", "Fan max"], ["FAN_MIN", 1, "هوا مين", "Fan min"],
+];
+const LANGS = [["ar", "العربية"], ["ckb", "کوردی"], ["en", "English"]];
+
+const $ = id => document.getElementById(id);
+const $$ = sel => document.querySelectorAll(sel);
+let lang = localStorage.getItem("smartbyd_lang") || ((navigator.language || "").startsWith("en") ? "en" : "ar");
+if (!T[lang]) lang = "ar";
+let key = localStorage.getItem("smartbyd_key");
+let S = S_FALLBACK;
+let tabNow = "home";
+let state = { ok: null, name: null, ac: null, acAt: null, cc: localStorage.getItem("smartbyd_cc") === "1" };
+const t = k => (T[lang] || T.en)[k] ?? T.en[k];
+const s = k => S[k] ?? S_FALLBACK[k] ?? "";
+const cmdLabel = c => (S.cmd && S.cmd[c]) || c;
+
+function icon(name) { return '<svg class="i" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || "") + "</svg>"; }
+function paintIcons(root) {
+  (root || document).querySelectorAll("svg[data-icon]").forEach(el => {
+    el.setAttribute("viewBox", "0 0 24 24"); el.setAttribute("aria-hidden", "true"); el.innerHTML = ICONS[el.dataset.icon] || "";
+  });
+}
+function el(html) { const d = document.createElement("div"); d.innerHTML = html.trim(); return d.firstElementChild; }
+function esc(x) { return String(x).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]); }
+
+// ---------- texts ----------
+async function loadStrings() {
+  try {
+    const r = await fetch("/s/strings-" + lang + ".json?v=7");
+    if (r.ok) S = await r.json();
+  } catch (e) {}
+}
+
+async function setLang(l) {
+  lang = l; localStorage.setItem("smartbyd_lang", l);
+  await loadStrings(); render();
+}
+
+// ---------- rendering ----------
+function render() {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
+  $$("[data-t]").forEach(e => e.textContent = t(e.dataset.t));
+  $$("[data-s]").forEach(e => e.textContent = s(e.dataset.s));
+  $$("[data-lang-picker]").forEach(p => {
+    p.innerHTML = LANGS.map(([code, name]) => '<button data-l="' + code + '" class="' + (code === lang ? "on" : "") + '">' + name + "</button>").join("");
+    p.querySelectorAll("button").forEach(b => b.onclick = () => setLang(b.dataset.l));
+  });
+  renderQuick(); renderFans(); renderTemp(); renderTiles(); renderCarControls(); renderSiri(); renderState(); renderShare();
+  $("shareText").placeholder = s("shareTypeHint");
+  if (DASH) renderDash();
+  paintIcons();
+}
+
+function labeled(cmd, compact) {
+  return '<button class="labeled act' + (compact ? " compact" : "") + '" data-cmd="' + cmd + '"><span class="round">' + icon(CMD_ICON[cmd]) + "</span><span>" + esc(cmdLabel(cmd)) + "</span></button>";
+}
+function pill(cmd, text) { return '<button class="pill act" data-cmd="' + cmd + '">' + icon(CMD_ICON[cmd]) + "<span>" + esc(text) + "</span></button>"; }
+function wire(root) { root.querySelectorAll("[data-cmd]").forEach(b => b.onclick = () => send(b.dataset.cmd, +(b.dataset.n || 1))); }
+
+function renderQuick() {
+  $("quick").innerHTML = ["MAX_COOLING", "RECIRCULATE", "AUTO_MODE", "VENTILATION"].map(labeled).join(""); wire($("quick"));
+}
+function renderFans() {
+  let h = "";
+  for (let n = 1; n <= 7; n++)
+    h += '<div class="fan-slot"><button class="fan-key act" data-cmd="FAN_LEVEL" data-n="' + n + '" aria-label="' + n + '" style="--s:' +
+      (34 + 6 * (n - 1)) + '%">' + icon("fan") + "<b>" + n + "</b></button></div>";  // the fan grows with the level, like the app
+  $("fans").innerHTML = h; wire($("fans"));
+  $("fanPills").innerHTML = pill("FAN_MIN", s("min")) + pill("FAN_MAX", s("max")); wire($("fanPills"));
+}
+function renderTemp() {
+  $("tempPills").innerHTML = pill("TEMP_MIN", s("min")) + pill("TEMP_MAX", s("max")); wire($("tempPills"));
+}
+function renderTiles() {
+  $("tiles").innerHTML = ["FRONT_DEFROST", "REAR_DEFROST"].map(c =>
+    '<button class="tile act" data-cmd="' + c + '">' + icon(CMD_ICON[c]) + "<span>" + esc(cmdLabel(c)) + "</span></button>").join("");
+  wire($("tiles"));
+}
+
+// The car's body controls, laid out like the app's section: [group, [row title, icon, [start cmd, word], [end cmd, word]]…].
+const CC = [
+  ["cc_group_doors", [
+    ["cc_row_doors", "lock", ["CARCTL_DOORS_UNLOCK", "cc_act_unlock"], ["CARCTL_DOORS_LOCK", "cc_act_lock"]],
+    ["cc_row_trunk", "inventory_2", ["CARCTL_TRUNK_CLOSE", "cc_act_close"], ["CARCTL_TRUNK_OPEN", "cc_act_open"]],
+    ["cc_row_mirrors", "swap_horiz", ["CARCTL_MIRRORS_UNFOLD", "cc_act_unfold"], ["CARCTL_MIRRORS_FOLD", "cc_act_fold"]]]],
+  ["cc_group_windows", [
+    ["cc_row_windows_all", "window", ["CARCTL_WINDOWS_CLOSE_ALL", "cc_act_close"], ["CARCTL_WINDOWS_OPEN_ALL", "cc_act_open"]],
+    ["cc_row_windows_vent", "air", ["CARCTL_WINDOWS_STOP", "cc_act_stop"], ["CARCTL_WINDOWS_VENT", "cc_act_vent"]],
+    ["cc_row_window_fl", "window", ["CARCTL_WINDOW_FL_CLOSE", "cc_act_close"], ["CARCTL_WINDOW_FL_OPEN", "cc_act_open"]],
+    ["cc_row_window_fr", "window", ["CARCTL_WINDOW_FR_CLOSE", "cc_act_close"], ["CARCTL_WINDOW_FR_OPEN", "cc_act_open"]],
+    ["cc_row_window_rl", "window", ["CARCTL_WINDOW_RL_CLOSE", "cc_act_close"], ["CARCTL_WINDOW_RL_OPEN", "cc_act_open"]],
+    ["cc_row_window_rr", "window", ["CARCTL_WINDOW_RR_CLOSE", "cc_act_close"], ["CARCTL_WINDOW_RR_OPEN", "cc_act_open"]]]],
+  ["cc_group_sunroof", [
+    ["cc_row_sunroof", "roofing", ["CARCTL_SUNROOF_CLOSE", "cc_act_close"], ["CARCTL_SUNROOF_OPEN", "cc_act_open"]],
+    ["cc_row_sunroof_tilt", "roofing", ["CARCTL_SUNROOF_STOP", "cc_act_stop"], ["CARCTL_SUNROOF_TILT", "cc_act_tilt"]],
+    ["cc_row_sunshade", "blinds", ["CARCTL_SUNSHADE_CLOSE", "cc_act_close"], ["CARCTL_SUNSHADE_OPEN", "cc_act_open"]]]],
+  ["cc_group_lights", [
+    ["cc_row_hazard", "warning", ["CARCTL_HAZARD_OFF", "off"], ["CARCTL_HAZARD_ON", "on"]],
+    ["cc_row_roof_light", "lightbulb", ["CARCTL_ROOF_LIGHT_OFF", "off"], ["CARCTL_ROOF_LIGHT_ON", "on"]],
+    ["cc_row_ambient", "lightbulb", ["CARCTL_AMBIENT_OFF", "off"], ["CARCTL_AMBIENT_ON", "on"]]]],
+];
+const CC_MODES = [["CARCTL_DRIVE_NORMAL", "cc_mode_normal"], ["CARCTL_DRIVE_ECO", "cc_mode_eco"],
+  ["CARCTL_DRIVE_SPORT", "cc_mode_sport"], ["CARCTL_DRIVE_SNOW", "cc_mode_snow"]];
+
+// Seats, massage, steering heat, fridge, passenger temperature: [equipment, back seats?, group, row title, icon, [[cmd, word]…]].
+// Shown only for what the car says it has (its "equipment" answer), like the app's section.
+const lv = (pre) => [[pre + "_OFF", "off"], [pre + "_LOW", "cc_lvl_low"], [pre + "_HIGH", "cc_lvl_high"]];
+const mass = (seat) => [["OFF", "off"], ["LOW", "cc_lvl_low"], ["MEDIUM", "cc_lvl_medium"], ["HIGH", "cc_lvl_high"]]
+  .map(([p, w]) => ["CARCTL_MASSAGE_" + seat + "_" + p, w]);
+const massStyle = (seat) => [["PULSE", "cc_mm_pulse"], ["SHOULDER", "cc_mm_shoulder"], ["STRETCH", "cc_mm_stretch"], ["WAIST", "cc_mm_waist"],
+  ["WAVE", "cc_mm_wave"]].map(([p, w]) => ["CARCTL_MASSAGE_" + seat + "_" + p, w]);
+const CC_COMFORT = [
+  ["SEAT_HEAT", false, "cc_group_seats", "cc_row_driver_heat", "thermostat", lv("CARCTL_SEAT_DRIVER_HEAT")],
+  ["SEAT_VENT", false, "cc_group_seats", "cc_row_driver_vent", "air", lv("CARCTL_SEAT_DRIVER_VENT")],
+  ["SEAT_HEAT", false, "cc_group_seats", "cc_row_passenger_heat", "thermostat", lv("CARCTL_SEAT_PASSENGER_HEAT")],
+  ["SEAT_VENT", false, "cc_group_seats", "cc_row_passenger_vent", "air", lv("CARCTL_SEAT_PASSENGER_VENT")],
+  ["SEAT_HEAT", true, "cc_group_seats", "cc_row_rear_heat", "thermostat", lv("CARCTL_SEAT_REAR_HEAT")],
+  ["SEAT_VENT", true, "cc_group_seats", "cc_row_rear_vent", "air", lv("CARCTL_SEAT_REAR_VENT")],
+  ["SEAT_HEAT", false, "cc_group_seats", "cc_row_all_seats", "air",
+    [["CARCTL_SEATS_HEAT_ALL", "cc_all_heat"], ["CARCTL_SEATS_ALL_OFF", "cc_all_off"]]],
+  ["SEAT_VENT", false, "cc_group_seats", "cc_row_all_seats", "air",
+    [["CARCTL_SEATS_VENT_ALL", "cc_all_vent"], ["CARCTL_SEATS_ALL_OFF", "cc_all_off"]]],
+  ["STEERING_HEAT", false, "cc_group_seats", "cc_row_steering_heat", "thermostat",
+    [["CARCTL_STEERING_HEAT_OFF", "off"], ["CARCTL_STEERING_HEAT_ON", "on"]]],
+  ["PASSENGER_TEMP", false, "cc_group_seats", "cc_row_passenger_temp", "thermostat",
+    [["CARCTL_PASSENGER_TEMP_DOWN", "cc_temp_down"], ["CARCTL_PASSENGER_TEMP_UP", "cc_temp_up"]]],
+  ["MASSAGE", false, "cc_group_massage", "cc_row_massage_driver", "waves", mass("DRIVER")],
+  ["MASSAGE", false, "cc_group_massage", "cc_row_massage_mode", "waves", massStyle("DRIVER")],
+  ["MASSAGE", false, "cc_group_massage", "cc_row_massage_passenger", "waves", mass("PASSENGER")],
+  ["MASSAGE", false, "cc_group_massage", "cc_row_massage_mode", "waves", massStyle("PASSENGER")],
+  ["FRIDGE", false, "cc_group_fridge", "cc_row_fridge", "ac_unit",
+    [["CARCTL_FRIDGE_COOL", "cc_fridge_cool_key"], ["CARCTL_FRIDGE_HEAT", "cc_fridge_heat_key"], ["CARCTL_FRIDGE_OFF", "off"]]],
+];
+/** The comfort rows this car has: its equipment, and the back seats too for a back-seat row; "all" shows once. */
+function comfortRows() {
+  const has = new Set((state.eq || "").split(",").filter(Boolean));
+  const out = [];
+  CC_COMFORT.forEach(r => {
+    const [item, rear, , title] = r;
+    if (!has.has(item) || (rear && !has.has("REAR_SEATS"))) return;
+    if (title === "cc_row_all_seats" && out.some(o => o[3] === title)) return;
+    out.push(r);
+  });
+  // With heat and ventilation both, one "all seats" row with the three keys.
+  const all = out.find(o => o[3] === "cc_row_all_seats");
+  if (all && has.has("SEAT_HEAT") && has.has("SEAT_VENT"))
+    all[5] = [["CARCTL_SEATS_HEAT_ALL", "cc_all_heat"], ["CARCTL_SEATS_VENT_ALL", "cc_all_vent"], ["CARCTL_SEATS_ALL_OFF", "cc_all_off"]];
+  return out;
+}
+
+let ccShown = null;  // what the card was last built for (language + words), so the car's regular check doesn't rebuild it mid-tap
+function renderCarControls() {
+  const box = $("carControls");
+  box.classList.toggle("hidden", !state.cc);
+  if (!state.cc) { box.innerHTML = ""; ccShown = null; return; }
+  const sig = lang + "|" + s("cc_title") + "|" + t("ccHint") + "|" + (state.eq || "");
+  if (ccShown === sig) return;
+  ccShown = sig;
+  const p = ([cmd, word]) => '<button class="pill" data-cc="' + cmd + '" data-w="' + esc(s(word)) + '">' + esc(s(word)) + "</button>";
+  let h = '<div class="card-title"><svg class="i" data-icon="directions_car"></svg><span>' + esc(s("cc_title")) + "</span></div>" +
+    '<div class="cc-hint">' + esc(t("ccHint")) + "</div>";
+  CC.forEach(([group, rows]) => {
+    h += '<div class="cc-group">' + esc(s(group)) + "</div>";
+    rows.forEach(([title, ic, a, b]) => {
+      h += '<div class="cc-row"><div class="cc-name">' + icon(ic) + "<span>" + esc(s(title)) + '</span></div><div class="pills">' + p(a) + p(b) + "</div></div>";
+    });
+  });
+  h += '<div class="cc-group">' + esc(s("cc_group_drive")) + '</div><div class="pills">' + CC_MODES.map(p).join("") + "</div>";
+  let lastGroup = null;
+  comfortRows().forEach(([, , group, title, ic, keys]) => {
+    if (group !== lastGroup) { h += '<div class="cc-group">' + esc(s(group)) + "</div>"; lastGroup = group; }
+    h += '<div class="cc-row"><div class="cc-name">' + icon(ic) + "<span>" + esc(s(title)) + '</span></div><div class="pills wrap">' +
+      keys.map(p).join("") + "</div></div>";
+  });
+  box.innerHTML = h;
+  paintIcons(box);
+  // A stray tap must never move a door or a window: the first press arms the pill for 3 s, the second sends it.
+  let armed = null, timer = null;
+  const disarm = () => { if (armed) { armed.classList.remove("arm"); armed.textContent = armed.dataset.w; } armed = null; clearTimeout(timer); };
+  box.querySelectorAll("[data-cc]").forEach(b => b.onclick = () => {
+    if (armed === b) { disarm(); send(b.dataset.cc, 1); return; }
+    disarm();
+    armed = b; b.classList.add("arm"); b.textContent = t("ccAgain");
+    timer = setTimeout(disarm, 3000);
+  });
+}
+
+function renderState() {
+  const name = (state.name || "SmartBYD").replace(/^SmartBYD\s+/, "") || "SmartBYD";
+  $$("[data-car]").forEach(e => e.textContent = name);
+  $$("[data-dot]").forEach(e => e.className = "dot" + (state.ok === true ? " ok" : state.ok === false ? " bad" : ""));
+  $$("[data-state]").forEach(e => e.textContent = state.ok === false ? s("lost") : state.ok ? s("connected") : "");
+  // A/C: only what the car read; unknown shows both buttons, never a guess.
+  const v = $("acValue");
+  v.textContent = state.ac === true ? s("on") : state.ac === false ? s("off") : "—";
+  v.classList.toggle("on", state.ac === true);
+  $("acUpdated").textContent = state.acAt
+    ? s("acUpdated").replace("{t}", new Date(state.acAt).toLocaleTimeString(lang === "ckb" ? "ckb-IQ" : lang, { hour: "numeric", minute: "2-digit" }))
+    : "";
+  const a = $("acActions");
+  if (state.ac === true) a.innerHTML = '<button class="round filled act" data-cmd="AC_OFF" aria-label="' + esc(cmdLabel("AC_OFF")) + '">' + icon("power_settings_new") + "</button>";
+  else if (state.ac === false) a.innerHTML = '<button class="round act" data-cmd="AC_ON" aria-label="' + esc(cmdLabel("AC_ON")) + '">' + icon("power_settings_new") + "</button>";
+  else a.innerHTML = labeled("AC_ON", true) + labeled("AC_OFF", true);
+  wire(a);
+}
+
+function renderSiri() {
+  $("siriSteps").innerHTML = t("siriSteps").map(x => "<li>" + esc(x) + "</li>").join("");
+  if (!key) { $("siriList").innerHTML = ""; return; }
+  $("siriList").innerHTML = SIRI.map(([cmd, amount, ar, en], i) =>
+    '<div class="list-row"><span class="badge">' + icon(CMD_ICON[cmd]) + '</span><span class="txt"><b>“' + esc(lang === "en" ? en : ar) +
+    "”</b><small>" + esc(lang === "en" ? cmdLabel(cmd) : en) + '</small></span><button class="icon-btn" data-siri="' + i + '" aria-label="' +
+    esc(t("copy")) + '">' + icon("content_copy") + "</button></div>").join("");
+  $("siriList").querySelectorAll("[data-siri]").forEach(b => b.onclick = () => {
+    const [cmd, amount] = SIRI[+b.dataset.siri];
+    copy(location.origin + "/api/cmd/" + cmd + (amount > 1 ? "?amount=" + amount + "&" : "?") + "key=" + key);
+    toast("✓ " + t("copied"));
+  });
+}
+
+function showTab(name) {
+  tabNow = name;
+  $("pairPage").classList.toggle("hidden", !!key);
+  $("tabbar").classList.toggle("hidden", !key);
+  ["home", "share", "siri", "settings"].forEach(n => $(n + "Page").classList.toggle("hidden", !key || n !== name));
+  $$("[data-tab]").forEach(b => b.classList.toggle("on", b.dataset.tab === name));
+  window.scrollTo(0, 0);
+  if (name === "share") { loadShare(); markSeen(); }
+}
+
+// ---------- talking to the car ----------
+async function info() {
+  try {
+    const r = await fetch("/api/info", { cache: "no-store" });
+    const j = await r.json();
+    state = { ok: true, name: j.name, ac: j.ac ?? null, acAt: j.acAt ?? null, cc: "carControls" in j ? j.carControls === true : state.cc,
+      eq: "equipment" in j ? j.equipment : state.eq };
+    localStorage.setItem("smartbyd_cc", state.cc ? "1" : "0");
+  } catch (e) { state.ok = false; }
+  renderState(); paintIcons($("acActions")); renderCarControls();
+}
+
+let busy = false;
+async function send(cmd, amount) {
+  if (busy) return;
+  busy = true; document.body.classList.add("busy");
+  const label = cmd === "FAN_LEVEL" ? s("fanLevel") + " " + amount : cmdLabel(cmd);
+  toast(t("sending") + "  " + label, true);
+  try {
+    const r = await fetch("/api/command", { method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer " + key },
+      body: JSON.stringify({ cmd: cmd, amount: amount }) });
+    if (r.status === 401) { forget(); return; }
+    const j = await r.json();
+    if ("ac" in j) { state.ac = j.ac; state.acAt = j.acAt; }
+    if ("carControls" in j && j.carControls !== state.cc) { state.cc = j.carControls === true; localStorage.setItem("smartbyd_cc", state.cc ? "1" : "0"); renderCarControls(); }
+    if ("equipment" in j && j.equipment !== state.eq) { state.eq = j.equipment; renderCarControls(); }
+    state.ok = true; renderState();
+    toast((j.ok ? "✓ " : "✕ ") + (j.message || label));
+    if (navigator.vibrate) navigator.vibrate(30);
+  } catch (e) { state.ok = false; renderState(); toast("✕ " + t("notReach")); }
+  finally { busy = false; document.body.classList.remove("busy"); }
+}
+
+// Temperature taps add up for a moment and go as one command ("+3"), like the app.
+let pending = 0, pendingTimer = null;
+function nudge(d) {
+  pending = Math.max(-5, Math.min(5, pending + d));
+  const v = $("tValue");
+  v.textContent = pending === 0 ? "0" : (pending > 0 ? "+" + pending : "−" + -pending);
+  v.className = "value" + (pending > 0 ? " up" : pending < 0 ? " down" : "");
+  clearTimeout(pendingTimer);
+  pendingTimer = setTimeout(async function fire() {
+    if (busy) { pendingTimer = setTimeout(fire, 100); return; }
+    const n = pending; pending = 0; v.textContent = "0"; v.className = "value";
+    if (n !== 0) await send(n > 0 ? "TEMP_UP" : "TEMP_DOWN", Math.abs(n));
+  }, 900);
+}
+
+async function pair() {
+  // Arabic / Kurdish keyboards type ٣٣٢ or ۳۳۲: turn them into 332 first.
+  const code = Array.from($("code").value).map(ch => {
+    const c = ch.charCodeAt(0);
+    if (c >= 0x660 && c <= 0x669) return String(c - 0x660);
+    if (c >= 0x6F0 && c <= 0x6F9) return String(c - 0x6F0);
+    return ch;
+  }).join("").replace(/\D/g, "");
+  if (code.length !== 6) { toast("✕ " + t("INCOMPLETE")); return; }
+  const ua = navigator.userAgent;
+  const device = /iPhone/.test(ua) ? "iPhone" : /iPad/.test(ua) ? "iPad" : /Android/.test(ua) ? "Android browser" : "Browser";
+  try {
+    const r = await fetch("/api/pair", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code: code, device: device }) });
+    if (!r.ok) {
+      const j = await r.json().catch(() => ({}));
+      toast("✕ " + (t(j.reason) || t("wrongCode")).replace("{n}", j.triesLeft));
+      return;
+    }
+    const j = await r.json(); key = j.key; localStorage.setItem("smartbyd_key", key);
+    $("code").value = ""; toast(t("paired")); renderSiri(); paintIcons($("siriList")); showTab("home");
+  } catch (e) { toast("✕ " + t("notReach")); }
+}
+
+function forget() { localStorage.removeItem("smartbyd_key"); key = null; renderSiri(); showTab("home"); }
+
+// navigator.clipboard needs HTTPS; this page is plain HTTP on the hotspot, so use the old way.
+function copy(text) {
+  const a = document.createElement("textarea"); a.value = text; a.setAttribute("readonly", "");
+  a.style.position = "fixed"; a.style.opacity = "0"; document.body.appendChild(a);
+  a.select(); a.setSelectionRange(0, text.length);
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(a);
+}
+
+// Results carry a mark (✓ done / ✕ failed) that becomes an icon, never a symbol on screen.
+let toastTimer;
+function toast(msg, sticky) {
+  const m = /[✓✕✗]/.exec(msg);
+  const kind = m ? (m[0] === "✓" ? "ok" : "fail") : null;
+  const text = m ? (msg.slice(0, m.index) + msg.slice(m.index + 1)).trim() : msg;
+  const box = $("toast");
+  box.innerHTML = (kind ? '<span class="' + kind + '">' + icon(kind === "ok" ? "check_circle" : "error") + "</span>" : "") + "<span></span>";
+  box.lastChild.textContent = text;
+  box.classList.add("show");
+  clearTimeout(toastTimer);
+  if (!sticky) toastTimer = setTimeout(() => box.classList.remove("show"), 2600);
+}
+
+// ---------- Share board ----------
+// The car keeps one board of messages and files for every paired phone and the car itself.
+let share = { rev: null, items: [], max: 500 * 1024 * 1024 }, delId = null, uploading = false;
+const SEEN = "smartbyd_share_seen";
+
+function sizeText(n) {
+  return n >= 1073741824 ? (n / 1073741824).toFixed(1) + " GB" : n >= 1048576 ? (n / 1048576).toFixed(1) + " MB"
+    : n >= 1024 ? Math.floor(n / 1024) + " KB" : n + " B";
+}
+function whenText(ms) {
+  const loc = (lang === "ckb" ? "ckb-IQ" : lang) + "-u-nu-latn", d = new Date(ms), now = new Date();
+  const time = d.toLocaleTimeString(loc, { hour: "numeric", minute: "2-digit" });
+  return d.toDateString() === now.toDateString() ? time : d.toLocaleDateString(loc, { day: "numeric", month: "short" }) + " " + time;
+}
+function itemIcon(x) {
+  if (x.name == null) return /https?:\/\//.test(x.text || "") ? "link" : "notes";
+  const t = x.type || "";
+  return t.startsWith("image/") ? "image" : t.startsWith("video/") ? "movie" : "file";
+}
+function fileUrl(x) { return "/api/share/file?id=" + encodeURIComponent(x.id) + "&key=" + encodeURIComponent(key); }
+
+function renderShare() {
+  const list = $("shareList");
+  $("shareEmpty").classList.toggle("hidden", share.rev === null || share.items.length > 0);
+  list.classList.toggle("hidden", share.items.length === 0);
+  list.innerHTML = share.items.map((x, i) => {
+    const who = x.car ? s("shareCar") : x.mine ? s("shareYou") : x.from;
+    // Each part on its own (<bdi>), so "2.3 MB" and "8:29 PM" stay readable in Arabic and Kurdish.
+    const meta = [who, whenText(x.at)].concat(x.name != null ? [sizeText(x.size)] : []).map(m => "<bdi>" + esc(m) + "</bdi>").join(" · ");
+    const title = x.name != null ? x.name : x.text;
+    // Files open in Safari (save or share from there); links open; other text is copied.
+    const link = x.name == null ? ((x.text || "").match(/https?:\/\/\S+/) || [null])[0] : null;
+    const href = x.name != null ? fileUrl(x) : link;
+    const main = '<span class="badge' + (x.car ? " car" : "") + '">' + icon(itemIcon(x)) + '</span><span class="txt"><b>' + esc(title) +
+      "</b><small>" + meta + "</small></span>";
+    return '<div class="list-row share-row">' +
+      (href ? '<a class="row" style="flex:1;min-width:0;gap:14px;color:inherit;text-decoration:none" target="_blank" rel="noopener" href="' + esc(href) + '">' + main + "</a>"
+            : '<button class="row" style="flex:1;min-width:0;gap:14px;text-align:start" data-copy="' + i + '">' + main + "</button>") +
+      '<span class="acts">' + (x.name == null ? '<button class="icon-btn" data-copy="' + i + '" aria-label="' + esc(s("shareCopied")) + '">' + icon("content_copy") + "</button>" : "") +
+      '<button class="icon-btn danger" data-del="' + i + '" aria-label="' + esc(s("shareDelete")) + '">' + icon("delete") + "</button></span></div>";
+  }).join("");
+  list.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => { copy(share.items[+b.dataset.copy].text || ""); toast("✓ " + s("shareCopied")); });
+  list.querySelectorAll("[data-del]").forEach(b => b.onclick = () => askDelete(share.items[+b.dataset.del]));
+  const seen = +(localStorage.getItem(SEEN) || 0);
+  const fresh = share.items.some(x => !x.mine && x.at > seen);
+  $$('[data-tab="share"]').forEach(b => b.classList.toggle("has-new", fresh && tabNow !== "share"));
+}
+
+function markSeen() {
+  const newest = share.items.reduce((m, x) => Math.max(m, x.at), 0);
+  if (newest) localStorage.setItem(SEEN, String(newest));
+  renderShare();
+}
+
+async function loadShare() {
+  if (!key) return;
+  try {
+    const r = await fetch("/api/share" + (share.rev !== null ? "?rev=" + share.rev : ""), { cache: "no-store", headers: { "Authorization": "Bearer " + key } });
+    if (r.status === 401) { forget(); return; }
+    if (!r.ok) return;
+    const j = await r.json();
+    share.max = j.max || share.max;
+    const changed = Array.isArray(j.items);
+    if (changed) share.items = j.items;
+    share.rev = j.rev;
+    if (changed || share.items.length === 0) { renderShare(); if (tabNow === "share") markSeen(); }
+  } catch (e) {}
+}
+
+async function sendShareText() {
+  const box = $("shareText"), text = box.value.trim();
+  if (!text || uploading) return;
+  try {
+    const r = await fetch("/api/share/text", { method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer " + key }, body: JSON.stringify({ text: text }) });
+    if (r.status === 401) { forget(); return; }
+    if (!r.ok) throw 0;
+    box.value = ""; await loadShare(); markSeen();
+  } catch (e) { toast("✕ " + s("shareFailed")); }
+}
+
+// XHR, not fetch: it reports upload progress.
+function uploadOne(file) {
+  return new Promise(done => {
+    const x = new XMLHttpRequest();
+    x.open("POST", "/api/share/file?name=" + encodeURIComponent(file.name));
+    x.setRequestHeader("Authorization", "Bearer " + key);
+    x.setRequestHeader("Content-Type", file.type || "application/octet-stream");
+    x.upload.onprogress = e => { if (e.lengthComputable) $("shareUpBar").style.width = Math.round(100 * e.loaded / e.total) + "%"; };
+    x.onload = () => done(x.status);
+    x.onerror = () => done(0);
+    x.send(file);
+  });
+}
+
+async function sendShareFiles(files) {
+  if (uploading || !files.length) return;
+  uploading = true;
+  for (const f of files) {
+    if (f.size > share.max) { toast("✕ " + s("shareTooBig").replace("{t}", sizeText(share.max))); break; }
+    $("shareUp").classList.remove("hidden"); $("shareUpBar").style.width = "0";
+    $("shareUpName").textContent = s("shareSending").replace("{t}", f.name);
+    const status = await uploadOne(f);
+    if (status === 401) { forget(); break; }
+    if (status !== 200) {
+      toast("✕ " + (status === 413 ? s("shareTooBig").replace("{t}", sizeText(share.max)) : status === 507 ? s("shareNoSpace") : s("shareFailed")));
+      break;
+    }
+  }
+  $("shareUp").classList.add("hidden");
+  uploading = false;
+  await loadShare(); markSeen();
+}
+
+function askDelete(x) {
+  delId = x.id;
+  $("confirmDelName").textContent = x.name != null ? x.name : (x.text || "").slice(0, 80);
+  $("confirmDel").classList.remove("hidden");
+}
+async function doDelete() {
+  $("confirmDel").classList.add("hidden");
+  try {
+    await fetch("/api/share/delete", { method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer " + key }, body: JSON.stringify({ id: delId }) });
+  } catch (e) { toast("✕ " + s("shareFailed")); }
+  await loadShare();
+}
+
+// ---------- About (ZangTech, contact, Privacy Policy, Terms of Use) ----------
+function openAbout() { $("aboutMain").classList.remove("hidden"); $("aboutLegal").classList.add("hidden"); $("about").classList.remove("hidden"); }
+function closeAbout() { $("about").classList.add("hidden"); }
+function openLegal(kind) {
+  const list = S[kind] || [];
+  $("legalTitle").textContent = s(kind === "privacy" ? "privacyTitle" : "termsTitle");
+  $("legalBody").innerHTML = list.map((x, i) => {
+    const lines = x.split("\n");
+    return "<h3>" + (i + 1) + ". " + esc(lines[0]) + "</h3><p>" + esc(lines.slice(1).join("\n")) + "</p>";
+  }).join("") + '<p style="margin-top:18px;font-size:13px">' + esc(s("aboutRights")) + "</p>";
+  $("aboutMain").classList.add("hidden"); $("aboutLegal").classList.remove("hidden");
+  $("about").querySelector(".sheet").scrollTop = 0;
+}
+
+// ---------- Dashboard lights ----------
+const DASH_COLOR = { red: "#E53935", amber: "#F59E0B", green: "#22A06B", blue: "#2F6BFF", white: "#8A94A6" };
+let DASH = null, dashOpen = null;
+function lightSvg(d, id, c) {
+  if (d.text[id]) {
+    const t = d.text[id], fs = t.length <= 2 ? 19 : t.length <= 3 ? 15 : t.length <= 5 ? 11 : 8.5;
+    return '<span class="t" style="color:' + c + ';font-size:' + fs + 'px">' + esc(t) + "</span>";
+  }
+  let g = (d.icons[id] || []).map(p => p.s
+    ? '<path d="' + p.d + '" fill="none" stroke="' + c + '" stroke-width="' + p.s + '" stroke-linecap="round" stroke-linejoin="round"/>'
+    : '<path d="' + p.d + '" fill="' + c + '"/>').join("");
+  if (d.inner[id]) g += '<text x="12" y="13.6" font-size="' + (d.inner[id].length > 2 ? 4.2 : 5) + '" font-weight="800" text-anchor="middle" fill="' + c + '">' + esc(d.inner[id]) + "</text>";
+  if (d.caption[id]) g += '<text x="12" y="23" font-size="5" font-weight="800" text-anchor="middle" fill="' + c + '">' + esc(d.caption[id]) + "</text>";
+  return '<svg viewBox="0 0 24 24">' + g + "</svg>";
+}
+function renderDash() {
+  if (!DASH) return;
+  const q = $("dashQ").value.trim().toLowerCase(), texts = S.dash || {};
+  const groups = [["red", "dashRed", "#E53935"], ["amber", "dashAmber", "#F59E0B"], ["info", "dashInfo", "#22A06B"]];
+  $("dashList").innerHTML = groups.map(([lvl, label, dot]) => {
+    const items = DASH.lights.filter(l => (lvl === "info" ? !["red", "amber"].includes(l.color) : l.color === lvl))
+      .filter(l => !q || (texts[l.id] || []).join(" ").toLowerCase().includes(q) || (DASH.text[l.id] || "").toLowerCase().includes(q));
+    if (!items.length) return "";
+    return '<div class="dash-h"><i style="background:' + dot + '"></i>' + esc(s(label)) + '</div><section class="card flush" style="margin-top:8px">' +
+      items.map(l => {
+        const c = DASH_COLOR[l.color] || DASH_COLOR.green, t = texts[l.id] || [l.id, "", ""];
+        return '<button class="light" data-light="' + l.id + '"><div class="top"><span class="tile" style="background:' + c + '1a">' +
+          lightSvg(DASH, l.id, c) + '</span><span class="txt"><b>' + esc(t[0]) + "</b><small>" + esc(t[1]) + "</small></span></div>" +
+          (dashOpen === l.id ? '<div class="todo" style="background:' + c + '14"><b style="color:' + c + '">' + esc(s("dashTodo")) + "</b>" + esc(t[2]) + "</div>" : "") +
+          "</button>";
+      }).join("") + "</section>";
+  }).join("");
+  $$("[data-light]").forEach(b => b.onclick = () => { dashOpen = dashOpen === b.dataset.light ? null : b.dataset.light; renderDash(); });
+}
+async function openDash() {
+  $("dash").classList.remove("hidden"); $("dashQ").placeholder = s("dashSearch");
+  if (!DASH) { try { DASH = await (await fetch("/s/dashlights.json")).json(); } catch (e) { DASH = null; } }
+  renderDash(); paintIcons($("dash"));
+}
+
+// ---------- start ----------
+$$("[data-dash]").forEach(b => b.onclick = openDash);
+$("dashBack").onclick = () => $("dash").classList.add("hidden");
+$("dashQ").oninput = renderDash;
+$$("[data-about]").forEach(b => b.onclick = openAbout);
+$("closeAbout").onclick = closeAbout;
+$("about").onclick = e => { if (e.target.id === "about") closeAbout(); };
+$("legalBack").onclick = () => { $("aboutLegal").classList.add("hidden"); $("aboutMain").classList.remove("hidden"); };
+$$("[data-legal]").forEach(b => b.onclick = () => openLegal(b.dataset.legal));
+$("pairBtn").onclick = pair;
+$("code").addEventListener("keyup", e => { if (e.key === "Enter") pair(); });
+$("forget").onclick = forget;
+$("toSiri").onclick = () => showTab("siri");
+$("tDown").onclick = () => nudge(-1);
+$("tUp").onclick = () => nudge(+1);
+$$("[data-tab]").forEach(b => b.onclick = () => showTab(b.dataset.tab));
+$("shareSend").onclick = sendShareText;
+$("shareFiles").onchange = e => { const f = Array.from(e.target.files || []); e.target.value = ""; sendShareFiles(f); };
+$("confirmNo").onclick = () => $("confirmDel").classList.add("hidden");
+$("confirmYes").onclick = doDelete;
+$("confirmDel").onclick = e => { if (e.target.id === "confirmDel") $("confirmDel").classList.add("hidden"); };
+render(); showTab("home");
+loadStrings().then(render);
+info(); setInterval(info, 5000);
+loadShare(); setInterval(loadShare, 5000);
+</script>
+</body>
+</html>

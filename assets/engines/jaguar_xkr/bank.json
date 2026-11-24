@@ -1,0 +1,56 @@
+{
+  "id": "jaguar_xkr",
+  "title": "Jaguar XKR",
+  "engine": "V8 · 5.0 supercharged",
+  "credit": "jerry.berumen, freesound.org (CC BY 4.0)",
+  "cylinders": 8,
+  "rate": 22050,
+  "idle": 620,
+  "redline": 6000,
+  "start": "",
+  "loops": [
+    {
+      "file": "off_620.wav",
+      "rpm": 625,
+      "load": false,
+      "gain": 0.55
+    },
+    {
+      "file": "off_2800.wav",
+      "rpm": 2779,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "off_3600.wav",
+      "rpm": 3600,
+      "load": false,
+      "gain": 0.75
+    },
+    {
+      "file": "on_2500.wav",
+      "rpm": 2481,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3100.wav",
+      "rpm": 3084,
+      "load": true,
+      "gain": 1.0
+    },
+    {
+      "file": "on_3700.wav",
+      "rpm": 3681,
+      "load": true,
+      "gain": 1.0
+    }
+  ],
+  "pops": 0.8,
+  "whine": 0.6,
+  "photo": {
+    "file": "car.jpg",
+    "credit": "Hugh Llewelyn, CC BY-SA 2.0, Wikimedia Commons (cropped)",
+    "source": "https://commons.wikimedia.org/wiki/File:2010_Jaguar_XKR_(cropped).jpg"
+  }
+}
