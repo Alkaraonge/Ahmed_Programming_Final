@@ -130,7 +130,7 @@
 
     .line 19
     .line 20
-    const-string v1, "dev.saad.bydvoice.SET_WAKE"
+    const-string v1, "com.ahmed.bydvoice.SET_WAKE"
 
     .line 21
     .line 22

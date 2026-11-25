@@ -8001,7 +8001,7 @@
     .line 6
     .line 7
     .line 8
-    const-string v1, "dev.saad.bydvoice.MIRROR"
+    const-string v1, "com.ahmed.bydvoice.MIRROR"
 
     .line 9
     .line 10

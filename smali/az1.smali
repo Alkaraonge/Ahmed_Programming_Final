@@ -5607,7 +5607,7 @@
 
     .line 30
     .line 31
-    const-string v2, "Mozilla/5.0 (Linux; Android 12) SmartBYD/1.0"
+    const-string v2, "Mozilla/5.0 (Linux; Android 12) AhmedBYD/1.0"
 
     .line 32
     .line 33

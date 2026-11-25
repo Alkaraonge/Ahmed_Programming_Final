@@ -43,7 +43,7 @@
     const/4 v1, 0x0
 
     .line 4
-    const-string v2, "dev.saad.bydvoice.MODE"
+    const-string v2, "com.ahmed.bydvoice.MODE"
 
     .line 5
     .line 6
@@ -315,7 +315,7 @@
     .line 142
     .line 143
     .line 144
-    const-string v3, "dev.saad.bydvoice.CAMERA_PERMISSION"
+    const-string v3, "com.ahmed.bydvoice.CAMERA_PERMISSION"
 
     .line 145
     .line 146

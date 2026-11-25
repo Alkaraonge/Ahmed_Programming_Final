@@ -4112,7 +4112,7 @@
     .line 6
     .line 7
     .line 8
-    const-string v1, "dev.saad.bydvoice.widget.MIC"
+    const-string v1, "com.ahmed.bydvoice.widget.MIC"
 
     .line 9
     .line 10
@@ -5715,7 +5715,7 @@
     .line 11
     .line 12
     .line 13
-    const-string v2, "dev.saad.bydvoice.widget.RUN"
+    const-string v2, "com.ahmed.bydvoice.widget.RUN"
 
     .line 14
     .line 15

@@ -224,7 +224,7 @@
 
     .line 81
     .line 82
-    const-string v3, "dev.saad.bydvoice.SET_REMOTE"
+    const-string v3, "com.ahmed.bydvoice.SET_REMOTE"
 
     .line 83
     .line 84
@@ -964,7 +964,7 @@
 
     .line 445
     .line 446
-    const-string v2, "dev.saad.bydvoice.SET_BUBBLE"
+    const-string v2, "com.ahmed.bydvoice.SET_BUBBLE"
 
     .line 447
     .line 448

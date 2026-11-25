@@ -32,7 +32,7 @@
     .locals 15
 
     .line 1
-    const-string v0, "dev.saad.bydvoice.CAR_LINK"
+    const-string v0, "com.ahmed.bydvoice.CAR_LINK"
 
     .line 2
     .line 3

@@ -84,7 +84,7 @@
 
     .line 32
     :sswitch_0
-    const-string v0, "dev.saad.bydvoice.BACKSEAT_RING"
+    const-string v0, "com.ahmed.bydvoice.BACKSEAT_RING"
 
     .line 33
     .line 34
@@ -113,7 +113,7 @@
 
     .line 45
     :sswitch_1
-    const-string v0, "dev.saad.bydvoice.BACKSEAT_YES"
+    const-string v0, "com.ahmed.bydvoice.BACKSEAT_YES"
 
     .line 46
     .line 47
@@ -178,7 +178,7 @@
 
     .line 76
     :sswitch_2
-    const-string v0, "dev.saad.bydvoice.BACKSEAT_NO"
+    const-string v0, "com.ahmed.bydvoice.BACKSEAT_NO"
 
     .line 77
     .line 78
@@ -240,7 +240,7 @@
 
     .line 106
     :sswitch_3
-    const-string v0, "dev.saad.bydvoice.BACKSEAT_CHECKED"
+    const-string v0, "com.ahmed.bydvoice.BACKSEAT_CHECKED"
 
     .line 107
     .line 108

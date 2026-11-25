@@ -91,7 +91,7 @@
 
     .line 35
     :cond_0
-    const-string v1, "dev.saad.bydvoice.widget.RUN"
+    const-string v1, "com.ahmed.bydvoice.widget.RUN"
 
     .line 36
     .line 37
@@ -140,7 +140,7 @@
     .line 57
     .line 58
     .line 59
-    const-string v2, "dev.saad.bydvoice.RUN_CMD"
+    const-string v2, "com.ahmed.bydvoice.RUN_CMD"
 
     .line 60
     .line 61
@@ -199,7 +199,7 @@
 
     .line 88
     :cond_3
-    const-string p2, "dev.saad.bydvoice.widget.MIC"
+    const-string p2, "com.ahmed.bydvoice.widget.MIC"
 
     .line 89
     .line 90
@@ -223,7 +223,7 @@
 
     .line 98
     .line 99
-    const-string p2, "dev.saad.bydvoice.LISTEN"
+    const-string p2, "com.ahmed.bydvoice.LISTEN"
 
     .line 100
     .line 101

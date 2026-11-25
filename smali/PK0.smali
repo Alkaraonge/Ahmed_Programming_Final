@@ -63,7 +63,7 @@
 
     .line 15
     .line 16
-    const-string v9, "https://github.com/SaadNatiqNori/SmartBYD-models/releases/download/maps-1/"
+    const-string v9, "https://github.com/Alkaraonge/Ahmed-BYD-Models/releases/download/maps-1/"
 
     .line 17
     .line 18

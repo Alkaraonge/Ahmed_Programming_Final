@@ -9150,7 +9150,7 @@
     .line 6
     .line 7
     .line 8
-    const-string v1, "dev.saad.bydvoice.LIVE_SOUND"
+    const-string v1, "com.ahmed.bydvoice.LIVE_SOUND"
 
     .line 9
     .line 10
@@ -14233,7 +14233,7 @@
 
     .line 54
     .line 55
-    const-string v2, "SmartBYD-models"
+    const-string v2, "Ahmed-BYD-Models"
 
     .line 56
     .line 57

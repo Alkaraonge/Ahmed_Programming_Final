@@ -1366,7 +1366,7 @@
     .line 322
     .line 323
     .line 324
-    const-string v10, "dev.saad.bydvoice.DRIVE_TRAINING"
+    const-string v10, "com.ahmed.bydvoice.DRIVE_TRAINING"
 
     .line 325
     .line 326

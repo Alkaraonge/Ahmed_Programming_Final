@@ -234,7 +234,7 @@
 
     .line 84
     .line 85
-    const-string p1, "dev.saad.bydvoice.RESTART_WAKE"
+    const-string p1, "com.ahmed.bydvoice.RESTART_WAKE"
 
     .line 86
     .line 87

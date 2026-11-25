@@ -5861,7 +5861,7 @@
 
     .line 38
     .line 39
-    const-string v1, "dev.saad.bydvoice.SET_DOCK"
+    const-string v1, "com.ahmed.bydvoice.SET_DOCK"
 
     .line 40
     .line 41
@@ -14650,7 +14650,7 @@
 
     .line 58
     .line 59
-    const-string v2, "dev.saad.bydvoice.SET_DOCK"
+    const-string v2, "com.ahmed.bydvoice.SET_DOCK"
 
     .line 60
     .line 61

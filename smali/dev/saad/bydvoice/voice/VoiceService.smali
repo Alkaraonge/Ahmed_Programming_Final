@@ -19246,7 +19246,7 @@
     .line 40
     .line 41
     :sswitch_0
-    const-string v5, "dev.saad.bydvoice.LIVE_SOUND"
+    const-string v5, "com.ahmed.bydvoice.LIVE_SOUND"
 
     .line 42
     .line 43
@@ -19575,7 +19575,7 @@
     .line 184
     .line 185
     :sswitch_1
-    const-string v5, "dev.saad.bydvoice.MIRROR"
+    const-string v5, "com.ahmed.bydvoice.MIRROR"
 
     .line 186
     .line 187
@@ -19749,7 +19749,7 @@
 
     .line 271
     :sswitch_2
-    const-string v2, "dev.saad.bydvoice.LISTEN"
+    const-string v2, "com.ahmed.bydvoice.LISTEN"
 
     .line 272
     .line 273
@@ -19779,7 +19779,7 @@
 
     .line 285
     :sswitch_3
-    const-string v3, "dev.saad.bydvoice.SHOW_GUIDE"
+    const-string v3, "com.ahmed.bydvoice.SHOW_GUIDE"
 
     .line 286
     .line 287
@@ -19821,7 +19821,7 @@
 
     .line 305
     :sswitch_4
-    const-string v5, "dev.saad.bydvoice.DRIVE_TRAINING"
+    const-string v5, "com.ahmed.bydvoice.DRIVE_TRAINING"
 
     .line 306
     .line 307
@@ -20310,7 +20310,7 @@
 
     .line 536
     .line 537
-    const-string v3, "dev.saad.bydvoice.SET_WAKE"
+    const-string v3, "com.ahmed.bydvoice.SET_WAKE"
 
     .line 538
     .line 539
@@ -20518,7 +20518,7 @@
 
     .line 633
     .line 634
-    const-string v3, "dev.saad.bydvoice.SET_LIVE"
+    const-string v3, "com.ahmed.bydvoice.SET_LIVE"
 
     .line 635
     .line 636
@@ -20621,7 +20621,7 @@
 
     .line 683
     .line 684
-    const-string v3, "dev.saad.bydvoice.SET_DOCK"
+    const-string v3, "com.ahmed.bydvoice.SET_DOCK"
 
     .line 685
     .line 686
@@ -20667,7 +20667,7 @@
 
     .line 705
     .line 706
-    const-string v2, "dev.saad.bydvoice.ASSIST"
+    const-string v2, "com.ahmed.bydvoice.ASSIST"
 
     .line 707
     .line 708
@@ -20703,7 +20703,7 @@
 
     .line 722
     :sswitch_9
-    const-string v3, "dev.saad.bydvoice.SET_REMOTE"
+    const-string v3, "com.ahmed.bydvoice.SET_REMOTE"
 
     .line 723
     .line 724
@@ -20785,7 +20785,7 @@
 
     .line 762
     :sswitch_a
-    const-string v3, "dev.saad.bydvoice.SET_GLANCE"
+    const-string v3, "com.ahmed.bydvoice.SET_GLANCE"
 
     .line 763
     .line 764
@@ -20894,7 +20894,7 @@
     const/4 v3, 0x1
 
     .line 814
-    const-string v2, "dev.saad.bydvoice.RESTART_WAKE"
+    const-string v2, "com.ahmed.bydvoice.RESTART_WAKE"
 
     .line 815
     .line 816
@@ -20932,7 +20932,7 @@
 
     .line 832
     :sswitch_c
-    const-string v3, "dev.saad.bydvoice.SET_BUBBLE"
+    const-string v3, "com.ahmed.bydvoice.SET_BUBBLE"
 
     .line 833
     .line 834
@@ -21017,7 +21017,7 @@
     const/4 v3, 0x1
 
     .line 873
-    const-string v4, "dev.saad.bydvoice.SET_TRANSLATE"
+    const-string v4, "com.ahmed.bydvoice.SET_TRANSLATE"
 
     .line 874
     .line 875
@@ -21062,7 +21062,7 @@
     const/4 v3, 0x1
 
     .line 894
-    const-string v2, "dev.saad.bydvoice.CAR_LINK"
+    const-string v2, "com.ahmed.bydvoice.CAR_LINK"
 
     .line 895
     .line 896
@@ -21095,7 +21095,7 @@
     const/4 v3, 0x1
 
     .line 909
-    const-string v2, "dev.saad.bydvoice.MODE"
+    const-string v2, "com.ahmed.bydvoice.MODE"
 
     .line 910
     .line 911
@@ -21125,7 +21125,7 @@
 
     .line 923
     :sswitch_10
-    const-string v2, "dev.saad.bydvoice.DRIVE_TRAINING_STOP"
+    const-string v2, "com.ahmed.bydvoice.DRIVE_TRAINING_STOP"
 
     .line 924
     .line 925
@@ -21187,7 +21187,7 @@
 
     .line 952
     :sswitch_11
-    const-string v3, "dev.saad.bydvoice.CAMERA_PERMISSION"
+    const-string v3, "com.ahmed.bydvoice.CAMERA_PERMISSION"
 
     .line 953
     .line 954
@@ -21412,7 +21412,7 @@
     .line 1059
     .line 1060
     :sswitch_12
-    const-string v3, "dev.saad.bydvoice.SET_CAPTURE"
+    const-string v3, "com.ahmed.bydvoice.SET_CAPTURE"
 
     .line 1061
     .line 1062
@@ -21907,7 +21907,7 @@
     .line 1296
     .line 1297
     :sswitch_13
-    const-string v3, "dev.saad.bydvoice.RUN_CMD"
+    const-string v3, "com.ahmed.bydvoice.RUN_CMD"
 
     .line 1298
     .line 1299
@@ -21956,7 +21956,7 @@
 
     .line 1320
     :sswitch_14
-    const-string v3, "dev.saad.bydvoice.SET_LIMIT_SIGN"
+    const-string v3, "com.ahmed.bydvoice.SET_LIMIT_SIGN"
 
     .line 1321
     .line 1322
@@ -22464,7 +22464,7 @@
     .line 112
     .line 113
     .line 114
-    const-string v8, "dev.saad.bydvoice.SET_WAKE"
+    const-string v8, "com.ahmed.bydvoice.SET_WAKE"
 
     .line 115
     .line 116

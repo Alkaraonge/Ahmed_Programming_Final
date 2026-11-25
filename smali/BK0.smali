@@ -5592,7 +5592,7 @@
     move-result-object v0
 
     .line 5
-    const-string v1, "dev.saad.bydvoice.prayer.ALARM"
+    const-string v1, "com.ahmed.bydvoice.prayer.ALARM"
 
     .line 6
     .line 7
@@ -20212,7 +20212,7 @@
     .line 6
     .line 7
     .line 8
-    const-string v1, "dev.saad.bydvoice.prayer.ALARM"
+    const-string v1, "com.ahmed.bydvoice.prayer.ALARM"
 
     .line 9
     .line 10

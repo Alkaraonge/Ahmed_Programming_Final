@@ -32,7 +32,7 @@
     .locals 7
 
     .line 1
-    const-string v0, "dev.saad.bydvoice.SET_CAPTURE"
+    const-string v0, "com.ahmed.bydvoice.SET_CAPTURE"
 
     .line 2
     .line 3

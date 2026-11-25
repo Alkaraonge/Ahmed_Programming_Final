@@ -105,7 +105,7 @@
     .line 42
     .line 43
     :try_start_1
-    const-string v0, "smartbyd_stt_dp"
+    const-string v0, "ahmed_stt_dp"
 
     .line 44
     .line 45
@@ -163,7 +163,7 @@
 
     .line 66
     .line 67
-    const-string v0, "smartbyd_stt"
+    const-string v0, "ahmed_stt"
 
     .line 68
     .line 69

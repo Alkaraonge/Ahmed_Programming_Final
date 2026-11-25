@@ -125,7 +125,7 @@
     .line 5
     .line 6
     :try_start_0
-    const-string v0, "smartbyd_rnnoise"
+    const-string v0, "ahmed_rnnoise"
 
     .line 7
     .line 8

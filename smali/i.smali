@@ -18936,7 +18936,7 @@
     .line 322
     .line 323
     .line 324
-    const-string v3, "dev.saad.bydvoice.SHOW_GUIDE"
+    const-string v3, "com.ahmed.bydvoice.SHOW_GUIDE"
 
     .line 325
     .line 326

@@ -47,7 +47,7 @@
     const/4 v2, 0x0
 
     .line 6
-    const-string v3, "dev.saad.bydvoice.SET_WAKE"
+    const-string v3, "com.ahmed.bydvoice.SET_WAKE"
 
     .line 7
     .line 8
@@ -1839,7 +1839,7 @@
 
     .line 883
     .line 884
-    const-string p1, "dev.saad.bydvoice.MODE"
+    const-string p1, "com.ahmed.bydvoice.MODE"
 
     .line 885
     .line 886

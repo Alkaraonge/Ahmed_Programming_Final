@@ -153,7 +153,7 @@
 
     .line 53
     .line 54
-    const-string v2, "SmartBYD/0.2 (BYD head unit app)"
+    const-string v2, "AhmedBYD/1.0 (BYD head unit app)"
 
     .line 55
     .line 56

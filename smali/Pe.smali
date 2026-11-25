@@ -2460,7 +2460,7 @@
 
     .line 299
     .line 300
-    const-string v3, "dev.saad.bydvoice.STORE_INSTALL_RESULT"
+    const-string v3, "com.ahmed.bydvoice.STORE_INSTALL_RESULT"
 
     .line 301
     .line 302

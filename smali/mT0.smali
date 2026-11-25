@@ -39,7 +39,7 @@
     const/4 v0, 0x0
 
     .line 2
-    const-string v1, "dev.saad.bydvoice.RESTART_WAKE"
+    const-string v1, "com.ahmed.bydvoice.RESTART_WAKE"
 
     .line 3
     .line 4
@@ -155,7 +155,7 @@
 
     .line 60
     .line 61
-    const-string v0, "dev.saad.bydvoice.SET_LIVE"
+    const-string v0, "com.ahmed.bydvoice.SET_LIVE"
 
     .line 62
     .line 63
@@ -198,7 +198,7 @@
 
     .line 82
     .line 83
-    const-string v0, "dev.saad.bydvoice.SET_GLANCE"
+    const-string v0, "com.ahmed.bydvoice.SET_GLANCE"
 
     .line 84
     .line 85
@@ -723,7 +723,7 @@
 
     .line 346
     .line 347
-    const-string v0, "dev.saad.bydvoice.SET_LIMIT_SIGN"
+    const-string v0, "com.ahmed.bydvoice.SET_LIMIT_SIGN"
 
     .line 348
     .line 349

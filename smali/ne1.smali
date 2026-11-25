@@ -280,7 +280,7 @@
 
     .line 121
     .line 122
-    const-string v0, "dev.saad.bydvoice.SET_WAKE"
+    const-string v0, "com.ahmed.bydvoice.SET_WAKE"
 
     .line 123
     .line 124
@@ -1599,7 +1599,7 @@
 
     .line 785
     .line 786
-    const-string v0, "dev.saad.bydvoice.SET_TRANSLATE"
+    const-string v0, "com.ahmed.bydvoice.SET_TRANSLATE"
 
     .line 787
     .line 788

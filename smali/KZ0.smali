@@ -288,7 +288,7 @@
     .line 78
     .line 79
     .line 80
-    const-string v10, "SmartBYD/1.0"
+    const-string v10, "AhmedBYD/1.0"
 
     .line 81
     .line 82

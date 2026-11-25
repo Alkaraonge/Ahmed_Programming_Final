@@ -6691,7 +6691,7 @@
 
     .line 342
     .line 343
-    const-string v2, "dev.saad.bydvoice.SET_DOCK"
+    const-string v2, "com.ahmed.bydvoice.SET_DOCK"
 
     .line 344
     .line 345

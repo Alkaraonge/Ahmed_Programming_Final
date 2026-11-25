@@ -118,7 +118,7 @@
     .locals 3
 
     .line 1
-    const-string v0, "dev.saad.bydvoice.SET_GLANCE"
+    const-string v0, "com.ahmed.bydvoice.SET_GLANCE"
 
     .line 2
     .line 3

@@ -16,7 +16,7 @@
 
     .line 2
     .line 3
-    const-string v5, "https://github.com/SaadNatiqNori/SmartBYD-models/releases/download/v1/"
+    const-string v5, "https://github.com/Alkaraonge/Ahmed-BYD-Models/releases/download/v1/"
 
     .line 4
     .line 5
@@ -49,7 +49,7 @@
 
     .line 19
     .line 20
-    const-string v6, "https://github.com/SaadNatiqNori/SmartBYD-models/releases/download/v1/"
+    const-string v6, "https://github.com/Alkaraonge/Ahmed-BYD-Models/releases/download/v1/"
 
     .line 21
     .line 22
@@ -82,7 +82,7 @@
 
     .line 36
     .line 37
-    const-string v7, "https://github.com/SaadNatiqNori/SmartBYD-models/releases/download/v1/"
+    const-string v7, "https://github.com/Alkaraonge/Ahmed-BYD-Models/releases/download/v1/"
 
     .line 38
     .line 39

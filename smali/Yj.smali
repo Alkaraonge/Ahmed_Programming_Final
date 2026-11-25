@@ -459,7 +459,7 @@
 
     .line 37
     .line 38
-    const-string v1, "dev.saad.bydvoice.BACKSEAT_RING"
+    const-string v1, "com.ahmed.bydvoice.BACKSEAT_RING"
 
     .line 39
     .line 40
@@ -962,7 +962,7 @@
     move-result-object v0
 
     .line 139
-    const-string v1, "dev.saad.bydvoice.BACKSEAT_CHECKED"
+    const-string v1, "com.ahmed.bydvoice.BACKSEAT_CHECKED"
 
     .line 140
     .line 141
@@ -1025,7 +1025,7 @@
 
     .line 171
     .line 172
-    const-string v1, "dev.saad.bydvoice.BACKSEAT_RING"
+    const-string v1, "com.ahmed.bydvoice.BACKSEAT_RING"
 
     .line 173
     .line 174

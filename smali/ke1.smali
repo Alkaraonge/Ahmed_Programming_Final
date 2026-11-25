@@ -313,7 +313,7 @@
 
     .line 22
     .line 23
-    const-string v0, "dev.saad.bydvoice.DRIVE_TRAINING_STOP"
+    const-string v0, "com.ahmed.bydvoice.DRIVE_TRAINING_STOP"
 
     .line 24
     .line 25
